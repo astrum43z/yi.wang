@@ -2,221 +2,132 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fff8ed">
-  <meta name="description" content="汪意的个人小世界。网页由文杰维护。">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#477fa4">
+  <meta name="description" content="汪意的网站，网页由文杰维护。">
   <title>汪意 · YI.WANG</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2218%22%20fill%3D%22%23fff5e7%22%2F%3E%3Cg%20fill%3D%22%23f1b7a9%22%3E%3Cellipse%20cx%3D%2232%22%20cy%3D%2219%22%20rx%3D%229%22%20ry%3D%2214%22%2F%3E%3Cellipse%20cx%3D%2232%22%20cy%3D%2245%22%20rx%3D%229%22%20ry%3D%2214%22%2F%3E%3Cellipse%20cx%3D%2219%22%20cy%3D%2232%22%20rx%3D%2214%22%20ry%3D%229%22%2F%3E%3Cellipse%20cx%3D%2245%22%20cy%3D%2232%22%20rx%3D%2214%22%20ry%3D%229%22%2F%3E%3C%2Fg%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%228%22%20fill%3D%22%23e7bd70%22%2F%3E%3C%2Fsvg%3E">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="汪意 · YI.WANG">
+  <meta property="og:description" content="汪意的网站，网页由文杰维护。">
+  <meta property="og:url" content="https://yi.wang/">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://yi.wang/assets/social-preview.jpg">
+  <meta property="og:image:alt" content="原创手绘草坡、远山与天空场景">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="汪意 · YI.WANG">
+  <meta name="twitter:description" content="汪意的网站，网页由文杰维护。">
+  <meta name="twitter:image" content="https://yi.wang/assets/social-preview.jpg">
+  <meta name="twitter:image:alt" content="原创手绘草坡、远山与天空场景">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" as="image" href="assets/world-day.webp">
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <script defer src="world-time.js"></script>
+  <script defer src="script.js"></script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="96161282-32cd-4d9a-9470-663d7aa265c7"></script>
 </head>
 <body>
-  <!-- 装饰图标：纯 SVG 图形，不代表人物、照片、地点或经历。 -->
-  <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-    <defs>
-      <symbol id="i-flower" viewBox="0 0 100 100">
-        <g fill="currentColor">
-          <ellipse cx="50" cy="24" rx="13" ry="21"/>
-          <ellipse cx="50" cy="24" rx="13" ry="21" transform="rotate(45 50 50)"/>
-          <ellipse cx="50" cy="24" rx="13" ry="21" transform="rotate(90 50 50)"/>
-          <ellipse cx="50" cy="24" rx="13" ry="21" transform="rotate(135 50 50)"/>
-          <ellipse cx="50" cy="24" rx="13" ry="21" transform="rotate(180 50 50)"/>
-          <ellipse cx="50" cy="24" rx="13" ry="21" transform="rotate(225 50 50)"/>
-          <ellipse cx="50" cy="24" rx="13" ry="21" transform="rotate(270 50 50)"/>
-          <ellipse cx="50" cy="24" rx="13" ry="21" transform="rotate(315 50 50)"/>
-        </g>
-        <circle cx="50" cy="50" r="17" fill="#dbaf62"/>
-        <g fill="#775846"><circle cx="44" cy="48" r="1.7"/><circle cx="56" cy="48" r="1.7"/></g>
-        <path d="M45 55q5 5 10 0" fill="none" stroke="#775846" stroke-width="1.7" stroke-linecap="round"/>
-      </symbol>
-      <symbol id="i-spark" viewBox="0 0 60 60"><path d="M30 4Q31 28 55 30Q31 31 30 56Q29 32 5 30Q29 29 30 4Z" fill="currentColor"/></symbol>
-      <symbol id="i-sprig" viewBox="0 0 100 140">
-        <path d="M44 128Q68 77 48 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-        <path d="M55 93Q20 92 16 63Q49 57 55 93M57 77Q87 70 90 42Q60 42 57 77M54 55Q23 44 27 17Q51 20 54 55M54 43Q73 26 66 7Q50 17 54 43" fill="currentColor"/>
-      </symbol>
-      <symbol id="i-bow" viewBox="0 0 140 105">
-        <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M69 47C35 1 6 6 14 34S50 63 69 47C98 7 132 6 129 31S89 60 69 47Z"/><path d="M67 46Q59 78 36 93M73 47Q91 62 99 91M69 46Q37 25 27 29M73 44Q102 24 112 29"/></g>
-      </symbol>
-      <symbol id="i-camera" viewBox="0 0 64 50"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M8 12h12l4-7h17l4 7h11v32H8Z"/><circle cx="32" cy="28" r="10"/><path d="M48 19h3" stroke-linecap="round"/></g></symbol>
-    </defs>
-  </svg>
-
-  <a class="skip-link" href="#main">跳至正文</a>
-  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a href="#main" class="skip-link">跳至正文</a>
+  <div id="world" class="world" aria-hidden="true">
+    <div class="world-sky"></div>
+    <div class="sun-disc"></div><div class="sun-halo"></div>
+    <div class="moon-disc"></div><div class="nebula"></div>
+    <div class="cloud-layer clouds-far"><img src="assets/clouds.webp" alt="" width="1774" height="887"></div>
+    <div class="cloud-layer clouds-mid"><img src="assets/clouds.webp" alt="" width="1774" height="887"></div>
+    <div class="cloud-layer clouds-near"><img src="assets/clouds.webp" alt="" width="1774" height="887"></div>
+    <div class="world-terrain">
+      <div class="painting">
+        <img class="landscape landscape-day" src="assets/world-day.webp" alt="" fetchpriority="high" width="1672" height="941">
+        <img class="landscape landscape-night" src="assets/world-night.webp" alt="" width="1672" height="941">
+        <div class="cottage-glow"></div><div class="land-temperature"></div><div class="cloud-shadow"></div>
+      </div>
+    </div>
+    <div class="morning-mist"></div><div class="dew-light"></div>
+    <div class="foreground foreground-left"><img src="assets/foreground.webp" alt="" width="1672" height="941"></div>
+    <div class="foreground foreground-middle"><img src="assets/foreground.webp" alt="" width="1672" height="941"></div>
+    <div class="foreground foreground-right"><img src="assets/foreground.webp" alt="" width="1672" height="941"></div>
+    <div class="tree-branch"><img src="assets/foreground.webp" alt="" width="1672" height="941"></div>
+    <div class="window-corner"><img src="assets/window.webp" alt="" width="1672" height="941"><div class="window-sunlight"></div></div>
+    <div class="curtain"><img src="assets/window.webp" alt="" width="1672" height="941"></div>
+    <canvas id="environment-canvas"></canvas>
+  </div>
+  <div class="camera-wipe" aria-hidden="true"><img src="assets/foreground.webp" alt="" width="1672" height="941"></div>
   <header class="site-header">
-    <a class="wordmark" href="#home" aria-label="YI.WANG，返回首页">YI.WANG<svg class="wordmark-flower" aria-hidden="true"><use href="#i-flower"/></svg></a>
-    <nav class="desktop-nav" aria-label="章节导航">
-      <a href="#recent">最近</a>
-      <a href="#gallery">相册</a>
-      <a href="#things">小东西</a>
-      <a href="#notes">随便写写</a>
-      <a href="#about">关于</a>
-    </nav>
-    <button class="menu-toggle" type="button" aria-label="打开章节导航" aria-expanded="false" aria-controls="chapter-menu"><span></span><span></span></button>
+    <a class="wordmark" href="#home" aria-label="YI.WANG，回到首页">YI.WANG</a>
+    <nav class="desktop-nav" aria-label="章节导航"><a href="#recent">最近</a><a href="#gallery">相册</a><a href="#things">小东西</a><a href="#notes">随便写写</a><a href="#about">关于</a></nav>
+    <button class="menu-toggle" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="chapter-menu"><span></span><span></span></button>
   </header>
+  <button class="skip-intro" type="button" hidden>跳过开场</button>
   <main id="main">
-    <section class="scene hero" id="home" aria-labelledby="hero-title" data-chapter="首页">
-      <!-- 【修改背景图片/视频】可选背景路径在 script.js 的 BACKGROUND 中修改；留空使用奶油纸张底色。 -->
-      <div class="scene-backdrop" aria-hidden="true"><div class="ambient-image"></div></div>
-      <div class="hero-shade" aria-hidden="true"></div>
-      <div class="hero-decor" aria-hidden="true">
-        <span class="soft-orb orb-peach"></span><span class="soft-orb orb-sage"></span>
-        <span class="cloud cloud-one"></span><span class="cloud cloud-two"></span>
-        <svg class="doodle hero-sprig"><use href="#i-sprig"/></svg>
-        <svg class="doodle hero-bow"><use href="#i-bow"/></svg>
-        <svg class="doodle spark spark-one"><use href="#i-spark"/></svg>
-        <svg class="doodle spark spark-two"><use href="#i-spark"/></svg>
-        <svg class="doodle hero-flower-small"><use href="#i-flower"/></svg>
-        <svg class="doodle loop-line" viewBox="0 0 260 120"><path d="M8 79C58 127 183 78 136 32S50 109 164 98Q226 96 250 48" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="5 7" stroke-linecap="round"/></svg>
-      </div>
-      <!-- 首页两张相框镜像 PHOTOS 的前两张照片；无真实照片时只显示占位符。 -->
-      <a class="hero-polaroid hero-photo-left" href="#gallery" aria-label="前往相册">
-        <span class="cover-photo tone-3" data-cover-photo="0"><svg aria-hidden="true"><use href="#i-camera"/></svg><span>[照片]</span></span>
-        <span class="cover-caption" aria-hidden="true"><i></i><i></i></span>
-      </a>
-      <a class="hero-polaroid hero-photo-right" href="#gallery" aria-label="前往相册">
-        <span class="cover-photo tone-1" data-cover-photo="1"><svg aria-hidden="true"><use href="#i-camera"/></svg><span>[照片]</span></span>
-        <span class="cover-caption" aria-hidden="true"><i></i><i></i></span>
-      </a>
-      <!-- 【修改首页文字】固定为 YI.WANG / 汪意 / 网页由文杰维护。 -->
-      <div class="hero-copy">
-        <span class="paper-tape hero-tape" aria-hidden="true"></span>
-        <svg class="hero-flower" aria-hidden="true"><use href="#i-flower"/></svg>
-        <span class="postage-stamp" aria-hidden="true"><svg><use href="#i-sprig"/></svg></span>
-        <p class="eyebrow">YI.WANG</p>
-        <h1 id="hero-title">汪意</h1>
-        <p class="hero-subtitle">网页由文杰维护</p>
-      </div>
-      <a class="scroll-cue" href="#recent"><span>进来看看</span><span class="scroll-stroke" aria-hidden="true"></span></a>
+    <section class="chapter hero" id="home" data-chapter="首页" aria-labelledby="hero-title">
+      <div class="hero-copy"><p class="eyebrow">YI.WANG</p><h1 id="hero-title">汪意</h1><p class="hero-subtitle">网页由文杰维护</p></div>
+      <a class="scroll-invitation" href="#recent" aria-label="向下漫步，进入最近"><span></span></a>
     </section>
-    <section class="scene recent section-pad" id="recent" aria-labelledby="recent-title" data-chapter="最近">
-      <div class="section-top reveal"><p class="eyebrow"><span>02</span> / 最近</p><span class="section-rule"></span></div>
-      <div class="section-heading reveal"><h2 id="recent-title">最近</h2><span class="empty-label">待添加</span></div>
-      <!-- 【修改最近】只用用户提供的真实记录与日期替换占位符；可增删完整 article。 -->
-      <div class="recent-list">
-        <article class="recent-card reveal">
-          <div class="recent-date"><span class="entry-number" aria-hidden="true">01</span><span>[日期]</span></div>
-          <div class="recent-copy"><h3>[记录标题]</h3><p>[记录内容]</p></div>
-          <svg class="recent-flower" aria-hidden="true"><use href="#i-flower"/></svg>
-        </article>
-        <article class="recent-card reveal">
-          <div class="recent-date"><span class="entry-number" aria-hidden="true">02</span><span>[日期]</span></div>
-          <div class="recent-copy"><h3>[记录标题]</h3><p>[记录内容]</p></div>
-          <svg class="recent-flower" aria-hidden="true"><use href="#i-flower"/></svg>
-        </article>
-        <article class="recent-card reveal">
-          <div class="recent-date"><span class="entry-number" aria-hidden="true">03</span><span>[日期]</span></div>
-          <div class="recent-copy"><h3>[记录标题]</h3><p>[记录内容]</p></div>
-          <svg class="recent-flower" aria-hidden="true"><use href="#i-flower"/></svg>
-        </article>
-      </div>
-    </section>
-    <section class="scene gallery section-pad" id="gallery" aria-labelledby="gallery-title" data-chapter="相册">
-      <div class="section-top reveal"><p class="eyebrow"><span>03</span> / 相册</p><span class="section-rule"></span><span class="secondary-label">点击展开</span></div>
-      <div class="section-heading reveal"><h2 id="gallery-title">相册</h2><span class="archive-count">01 — 06</span></div>
-      <!-- 【修改照片】在 script.js 的 PHOTOS 中填写图片路径、照片说明、日期与地点。
-           未填写 src 时，保留此处真正的 [照片] 占位框，不使用他人的照片假装私人内容。 -->
-      <div class="gallery-grid">
-        <figure class="gallery-item photo-one reveal"><button class="photo-button tone-1" data-photo="0" type="button" aria-label="放大照片 1"><span class="photo-placeholder"><svg aria-hidden="true"><use href="#i-camera"/></svg><span>[照片]</span></span><span class="photo-number" aria-hidden="true">01</span><span class="photo-expand" aria-hidden="true">↗</span></button><figcaption><span>[照片说明]</span><span>[日期]</span></figcaption></figure>
-        <figure class="gallery-item photo-two reveal"><button class="photo-button tone-2" data-photo="1" type="button" aria-label="放大照片 2"><span class="photo-placeholder"><svg aria-hidden="true"><use href="#i-camera"/></svg><span>[照片]</span></span><span class="photo-number" aria-hidden="true">02</span><span class="photo-expand" aria-hidden="true">↗</span></button><figcaption><span>[照片说明]</span><span>[日期]</span></figcaption></figure>
-        <figure class="gallery-item photo-three reveal"><button class="photo-button tone-3" data-photo="2" type="button" aria-label="放大照片 3"><span class="photo-placeholder"><svg aria-hidden="true"><use href="#i-camera"/></svg><span>[照片]</span></span><span class="photo-number" aria-hidden="true">03</span><span class="photo-expand" aria-hidden="true">↗</span></button><figcaption><span>[照片说明]</span><span>[日期]</span></figcaption></figure>
-        <figure class="gallery-item photo-four reveal"><button class="photo-button tone-4" data-photo="3" type="button" aria-label="放大照片 4"><span class="photo-placeholder"><svg aria-hidden="true"><use href="#i-camera"/></svg><span>[照片]</span></span><span class="photo-number" aria-hidden="true">04</span><span class="photo-expand" aria-hidden="true">↗</span></button><figcaption><span>[照片说明]</span><span>[日期]</span></figcaption></figure>
-        <figure class="gallery-item photo-five reveal"><button class="photo-button tone-5" data-photo="4" type="button" aria-label="放大照片 5"><span class="photo-placeholder"><svg aria-hidden="true"><use href="#i-camera"/></svg><span>[照片]</span></span><span class="photo-number" aria-hidden="true">05</span><span class="photo-expand" aria-hidden="true">↗</span></button><figcaption><span>[照片说明]</span><span>[日期]</span></figcaption></figure>
-        <figure class="gallery-item photo-six reveal"><button class="photo-button tone-6" data-photo="5" type="button" aria-label="放大照片 6"><span class="photo-placeholder"><svg aria-hidden="true"><use href="#i-camera"/></svg><span>[照片]</span></span><span class="photo-number" aria-hidden="true">06</span><span class="photo-expand" aria-hidden="true">↗</span></button><figcaption><span>[照片说明]</span><span>[日期]</span></figcaption></figure>
-      </div>
-      <div class="gallery-tail reveal"><span class="section-rule"></span><p class="eyebrow">[相册说明]</p></div>
-    </section>
-    <section class="scene things section-pad" id="things" aria-labelledby="things-title" data-chapter="小东西">
-      <div class="section-top reveal"><p class="eyebrow"><span>04</span> / 小东西</p><span class="section-rule"></span></div>
-      <div class="section-heading reveal"><h2 id="things-title">小东西</h2><span class="empty-label">待添加</span></div>
-      <!-- 【修改小东西】类别、名称、图片、说明和链接均待提供。没有链接时显示文字，不伪装成可点击入口。 -->
-      <div class="things-grid">
-        <article class="thing-card reveal">
-          <span class="paper-tape" aria-hidden="true"></span>
-          <div class="thing-cover tone-2"><span>[图片]</span></div>
-          <div class="thing-copy"><span class="eyebrow">[类别]</span><h3>[名称]</h3><p>[说明]</p><span class="pending-link">[链接待添加]</span></div>
-        </article>
-        <article class="thing-card reveal">
-          <span class="paper-tape" aria-hidden="true"></span>
-          <div class="thing-cover tone-3"><span>[图片]</span></div>
-          <div class="thing-copy"><span class="eyebrow">[类别]</span><h3>[名称]</h3><p>[说明]</p><span class="pending-link">[链接待添加]</span></div>
-        </article>
-        <article class="thing-card reveal">
-          <span class="paper-tape" aria-hidden="true"></span>
-          <div class="thing-cover tone-4"><span>[图片]</span></div>
-          <div class="thing-copy"><span class="eyebrow">[类别]</span><h3>[名称]</h3><p>[说明]</p><span class="pending-link">[链接待添加]</span></div>
-        </article>
-      </div>
-    </section>
-    <section class="scene notes section-pad" id="notes" aria-labelledby="notes-title" data-chapter="随便写写">
-      <div class="scene-backdrop" aria-hidden="true"><div class="ambient-image"></div></div>
-      <div class="notes-shade" aria-hidden="true"></div>
-      <svg class="notes-bow" aria-hidden="true"><use href="#i-bow"/></svg>
-      <div class="section-top reveal"><p class="eyebrow"><span>05</span> / 随便写写</p><span class="section-rule"></span></div>
-      <div class="section-heading reveal"><h2 id="notes-title">随便写写</h2></div>
-      <!-- 【修改随便写写】仅用用户提供的真实文字与日期替换占位符。 -->
-      <div class="notes-grid">
-        <article class="note-card reveal"><span class="note-index" aria-hidden="true">01</span><p>[文字内容]</p><footer>[日期]</footer></article>
-        <article class="note-card reveal"><span class="note-index" aria-hidden="true">02</span><p>[文字内容]</p><footer>[日期]</footer></article>
-        <article class="note-card reveal"><span class="note-index" aria-hidden="true">03</span><p>[文字内容]</p><footer>[日期]</footer></article>
-      </div>
-    </section>
-    <section class="scene about section-pad" id="about" aria-labelledby="about-title" data-chapter="关于">
-      <div class="section-top reveal"><p class="eyebrow"><span>06</span> / 关于</p><span class="section-rule"></span></div>
-      <div class="about-layout">
-        <div class="about-index reveal" aria-hidden="true">
-          <span class="notebook-spine"></span><span class="paper-tape"></span>
-          <svg class="about-flower"><use href="#i-flower"/></svg>
-          <span class="notebook-number">汪意</span><span class="notebook-label">YI.WANG</span>
-          <svg class="notebook-sprig"><use href="#i-sprig"/></svg>
-        </div>
-        <div class="about-content">
-          <h2 class="about-title reveal" id="about-title">关于</h2>
-          <p class="world-title reveal">汪意的个人小世界</p>
-          <!-- 【修改个人介绍】尚未提供个人介绍，请保留占位符。 -->
-          <div class="profile-note reveal"><span class="eyebrow">汪意</span><p>[个人介绍]</p></div>
-          <div class="about-footnote reveal"><span>网页由文杰维护</span><a href="#home">回到首页 ↑</a></div>
+    <section class="chapter recent" id="recent" data-chapter="最近" aria-labelledby="recent-title">
+      <div class="chapter-content trail-content">
+        <div class="landmark"><span class="chapter-index">01</span><h2 id="recent-title">最近</h2></div>
+        <!-- 【修改最近】尚无真实记录，不自动添加日期或经历。 -->
+        <div class="field-notes">
+          <article class="field-note"><span class="note-pin" aria-hidden="true"></span><p>等一则近况</p><small>暂时留白</small></article>
+          <article class="field-note"><span class="note-pin" aria-hidden="true"></span><p>留一张小纸条</p><small>内容待添加</small></article>
+          <article class="field-note"><span class="note-pin" aria-hidden="true"></span><p>下一页，还空着</p><small>内容待添加</small></article>
         </div>
       </div>
+    </section>
+    <section class="chapter gallery" id="gallery" data-chapter="相册" aria-labelledby="gallery-title">
+      <div class="chapter-content gallery-content">
+        <div class="landmark"><span class="chapter-index">02</span><h2 id="gallery-title">相册</h2></div>
+        <!-- 照片仍来自 script.js 的 PHOTOS，不使用风景装饰冒充私人照片。 -->
+        <div class="photo-line" role="group" aria-label="六个照片位置，可左右滑动"><figure class="hanging-photo" style="--slant:-4deg;--delay:0.0s"><button class="photo-button" type="button" data-photo="0" aria-label="打开第 1 张照片"><span class="empty-photo"><span>等待一张照片</span></span><span class="photo-sequence">01</span></button><figcaption>尚未放入照片</figcaption></figure><figure class="hanging-photo" style="--slant:3deg;--delay:0.24s"><button class="photo-button" type="button" data-photo="1" aria-label="打开第 2 张照片"><span class="empty-photo"><span>等待一张照片</span></span><span class="photo-sequence">02</span></button><figcaption>尚未放入照片</figcaption></figure><figure class="hanging-photo" style="--slant:-2deg;--delay:0.48s"><button class="photo-button" type="button" data-photo="2" aria-label="打开第 3 张照片"><span class="empty-photo"><span>等待一张照片</span></span><span class="photo-sequence">03</span></button><figcaption>尚未放入照片</figcaption></figure><figure class="hanging-photo" style="--slant:4deg;--delay:0.72s"><button class="photo-button" type="button" data-photo="3" aria-label="打开第 4 张照片"><span class="empty-photo"><span>等待一张照片</span></span><span class="photo-sequence">04</span></button><figcaption>尚未放入照片</figcaption></figure><figure class="hanging-photo" style="--slant:-3deg;--delay:0.96s"><button class="photo-button" type="button" data-photo="4" aria-label="打开第 5 张照片"><span class="empty-photo"><span>等待一张照片</span></span><span class="photo-sequence">05</span></button><figcaption>尚未放入照片</figcaption></figure><figure class="hanging-photo" style="--slant:2deg;--delay:1.2s"><button class="photo-button" type="button" data-photo="5" aria-label="打开第 6 张照片"><span class="empty-photo"><span>等待一张照片</span></span><span class="photo-sequence">06</span></button><figcaption>尚未放入照片</figcaption></figure></div>
+        <p class="gallery-hint">轻点展开<span class="mobile-hint"> · 左右滑动</span></p>
+      </div>
+    </section>
+    <section class="chapter things" id="things" data-chapter="小东西" aria-labelledby="things-title">
+      <div class="chapter-content picnic-content">
+        <div class="landmark"><span class="chapter-index">03</span><h2 id="things-title">小东西</h2></div>
+        <!-- 【修改小东西】只填用户提供的物件、名称与链接；现在没有假链接。 -->
+        <div class="picnic-cloth">
+          <article class="keepsake"><div class="object-space object-square" aria-hidden="true"></div><h3>留一个位置</h3><p>小物件待添加</p></article>
+          <article class="keepsake"><div class="object-space object-tall" aria-hidden="true"></div><h3>这里还空着</h3><p>内容待添加</p></article>
+          <article class="keepsake"><div class="object-space object-flat" aria-hidden="true"></div><h3>以后再放进来</h3><p>链接待添加</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="chapter notes" id="notes" data-chapter="随便写写" aria-labelledby="notes-title">
+      <div class="chapter-content writing-content">
+        <div class="landmark"><span class="chapter-index">04</span><h2 id="notes-title">随便写写</h2></div>
+        <button class="notebook" id="open-notebook" type="button" aria-label="翻开随便写写笔记本" aria-haspopup="dialog"><span class="book-spine" aria-hidden="true"></span><span class="book-cover"><span>随便写写</span><small>翻开看看</small></span></button>
+      </div>
+    </section>
+    <section class="chapter about" id="about" data-chapter="关于" aria-label="关于">
+      <div class="quiet-signature"><h2>汪意</h2><p class="signature-domain">yi.wang</p><p>网页由文杰维护</p></div>
     </section>
   </main>
-  <footer class="site-footer"><p>yi.wang · maintained by 郑文杰</p></footer>
-  <nav class="scene-rail" aria-label="场景定位">
-    <a href="#home" aria-label="01 首页" aria-current="location"><span>01</span><i></i></a>
-    <a href="#recent" aria-label="02 最近"><span>02</span><i></i></a>
-    <a href="#gallery" aria-label="03 相册"><span>03</span><i></i></a>
-    <a href="#things" aria-label="04 小东西"><span>04</span><i></i></a>
-    <a href="#notes" aria-label="05 随便写写"><span>05</span><i></i></a>
-    <a href="#about" aria-label="06 关于"><span>06</span><i></i></a>
-  </nav>
-  <div class="scene-footer" role="group" aria-label="浏览进度与播放设置">
-    <div class="scene-position"><span id="chapter-number">01</span><span class="position-divider"></span><span>06</span><span id="chapter-label">首页</span></div>
-    <div class="ambient-controls">
-      <button id="motion-toggle" type="button" aria-pressed="false" aria-label="暂停环境动效"><span class="motion-symbol" aria-hidden="true">Ⅱ</span><span class="motion-label">动效开</span></button>
-      <!-- 【修改音乐】音频文件路径在 script.js 的 MUSIC_SRC 中填写，初始状态始终为关闭。 -->
-      <button id="music-toggle" type="button" aria-pressed="false" aria-label="背景音乐，当前关闭"><span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="music-label">声音关</span></button>
-    </div>
+  <div class="world-controls" role="group" aria-label="世界设置">
+    <button id="time-toggle" class="time-toggle" type="button" aria-label="预览一天的光线" aria-haspopup="dialog"><span class="time-symbol" aria-hidden="true">☀</span><span id="time-label">白昼</span><small id="time-mode-label">AUTO</small></button>
+    <div class="playback-controls"><button id="motion-toggle" type="button" aria-pressed="false">动效开</button><button id="sound-toggle" type="button" aria-pressed="false">声音关</button></div>
   </div>
-  <dialog id="chapter-menu" class="chapter-menu" aria-label="章节导航">
-    <button class="icon-button menu-close" type="button" aria-label="关闭章节导航">×</button>
-    <span class="eyebrow">目 录</span>
-    <nav aria-label="移动端章节导航">
-      <a href="#home"><span>01</span>首页</a>
-      <a href="#recent"><span>02</span>最近</a>
-      <a href="#gallery"><span>03</span>相册</a>
-      <a href="#things"><span>04</span>小东西</a>
-      <a href="#notes"><span>05</span>随便写写</a>
-      <a href="#about"><span>06</span>关于</a>
-    </nav>
+  <nav class="scene-rail" aria-label="场景定位"><a href="#home" aria-label="首页"><span>首页</span></a><a href="#recent" aria-label="最近"><span>最近</span></a><a href="#gallery" aria-label="相册"><span>相册</span></a><a href="#things" aria-label="小东西"><span>小东西</span></a><a href="#notes" aria-label="随便写写"><span>随便写写</span></a><a href="#about" aria-label="关于"><span>关于</span></a></nav>
+  <dialog id="chapter-menu" class="small-dialog chapter-menu" aria-label="导航">
+    <button class="icon-button" data-close-dialog type="button" aria-label="关闭导航">×</button>
+    <nav aria-label="移动端章节导航"><a href="#home">YI.WANG</a><a href="#recent">最近</a><a href="#gallery">相册</a><a href="#things">小东西</a><a href="#notes">随便写写</a><a href="#about">关于</a></nav>
+  </dialog>
+  <dialog id="time-dialog" class="small-dialog time-dialog" aria-labelledby="time-dialog-title">
+    <button class="icon-button" data-close-dialog type="button" aria-label="关闭光线预览">×</button>
+    <h2 id="time-dialog-title">看看此刻之外</h2><p>默认跟随你的本地时间</p>
+    <div class="time-options"><button type="button" data-time="auto" aria-pressed="true">自动 <small>AUTO</small></button><button type="button" data-time="morning" aria-pressed="false">清晨</button><button type="button" data-time="day" aria-pressed="false">白昼</button><button type="button" data-time="sunset" aria-pressed="false">黄昏</button><button type="button" data-time="dusk" aria-pressed="false">入夜</button><button type="button" data-time="night" aria-pressed="false">深夜</button></div>
+  </dialog>
+  <dialog id="lightbox" class="object-dialog lightbox" aria-label="照片查看器" aria-describedby="lightbox-caption">
+    <div class="lightbox-sheet"><div class="lightbox-header"><span id="lightbox-counter">01 / 06</span><button class="icon-button" id="lightbox-close" type="button" aria-label="关闭照片" autofocus>×</button></div>
+      <div id="lightbox-stage" class="lightbox-stage"><img id="lightbox-image" alt="" hidden><span id="lightbox-placeholder">等待一张照片</span></div>
+      <div class="lightbox-footer"><div><p id="lightbox-caption">尚未放入照片</p><p class="photo-meta"><span id="lightbox-date"></span><span id="lightbox-place"></span></p></div><div class="lightbox-buttons"><button class="icon-button" id="lightbox-prev" type="button" aria-label="上一张照片">←</button><button class="icon-button" id="lightbox-next" type="button" aria-label="下一张照片">→</button></div></div>
+      <p class="sr-only" id="lightbox-announcement" aria-live="polite"></p>
+    </div>
+  </dialog>
+  <dialog id="book-dialog" class="object-dialog book-dialog" aria-labelledby="book-title">
+    <div class="book-spread"><button class="icon-button book-close" data-close-dialog type="button" aria-label="合上笔记本">×</button><div class="book-left"><p>随便写写</p><span>YI.WANG</span></div><article class="book-page"><span id="book-page-number">01</span><h2 id="book-title">这一页暂时留白</h2><p id="book-text">还没有文字。</p><div class="book-controls"><button class="icon-button" id="book-prev" type="button" aria-label="前一页">←</button><button class="icon-button" id="book-next" type="button" aria-label="后一页">→</button></div></article></div>
   </dialog>
   <p id="status-message" class="status-message" role="status" aria-live="polite"></p>
-  <dialog id="lightbox" class="lightbox" aria-label="照片查看器" aria-describedby="lightbox-caption">
-    <div class="lightbox-header"><span id="lightbox-counter" class="eyebrow">01 / 06</span><button class="icon-button" id="lightbox-close" type="button" aria-label="关闭照片查看器" autofocus>×</button></div>
-    <div class="lightbox-stage tone-1" id="lightbox-stage"><img id="lightbox-image" alt="[照片说明]" hidden><span class="photo-placeholder" id="lightbox-placeholder">[照片]</span></div>
-    <div class="lightbox-footer"><div><p id="lightbox-caption">[照片说明]</p><p class="lightbox-meta"><span id="lightbox-date">[日期]</span><span id="lightbox-place">[地点]</span></p></div><div class="lightbox-controls"><button class="icon-button" id="lightbox-prev" type="button" aria-label="上一张照片">←</button><button class="icon-button" id="lightbox-next" type="button" aria-label="下一张照片">→</button></div></div>
-    <p class="sr-only" id="lightbox-announcement" aria-live="polite"></p>
-  </dialog>
-  <audio id="background-audio" preload="none" loop></audio>
+  <noscript><p class="no-script">场景动画需要 JavaScript；你仍可以阅读各个栏目。</p></noscript>
 </body>
 </html>

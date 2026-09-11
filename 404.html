@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#243d58">
+  <meta name="description" content="汪意的网站，网页由文杰维护。">
+  <meta name="robots" content="noindex">
+  <title>汪意 · YI.WANG</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23315c6b'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia' font-size='36' fill='%23f1edd6'%3Eyi%3C/text%3E%3C/svg%3E">
+  <style>
+    *{box-sizing:border-box}html{min-height:100%;background:#243d58}body{min-height:100svh;margin:0;display:grid;place-items:center;color:#f5efdf;font-family:"Songti SC","SimSun",serif;background-image:linear-gradient(#102e5355,#13284433),var(--edge-art,linear-gradient(#243d58,#547487));background-size:cover;background-position:center}main{padding:40px 24px;text-align:center;margin-bottom:20svh}p{margin:0 0 22px;font:12px/1.8 "Microsoft YaHei",sans-serif;letter-spacing:.3em}h1{font-size:clamp(23px,3vw,40px);font-weight:400;line-height:1.8;margin:0 0 34px;text-shadow:0 2px 20px #09233b}a{color:inherit;text-decoration:none;display:inline-block;padding:12px 2px;border-bottom:1px solid #f5efdf70;font-size:15px;letter-spacing:.12em}a:focus-visible{outline:2px solid #f5efdf;outline-offset:8px}footer{position:fixed;bottom:25px;text-align:center;font-size:12px;letter-spacing:.12em;width:100%}@media(max-width:600px){body{background-position:58% center}main{margin-bottom:26svh}h1{max-width:290px}}
+  </style>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="96161282-32cd-4d9a-9470-663d7aa265c7"></script>
+</head>
+<body>
+  <main><p>YI.WANG · 404</p><h1>你走到了 yi.wang 的边缘。</h1><a id="back-home" href="/">回到小世界</a></main>
+  <footer>网页由文杰维护</footer>
+  <script>
+    (async function(){
+      let base=new URL('/',location.href);
+      if(location.protocol==='file:')base=new URL('./',location.href);
+      else if(location.hostname.endsWith('.github.io')){
+        const segment=location.pathname.split('/').filter(Boolean)[0];
+        if(segment&&segment!=='404.html'){
+          const candidate=new URL('/'+encodeURIComponent(segment)+'/',location.href);
+          try{const response=await fetch(new URL('index.html',candidate),{method:'HEAD'});if(response.ok)base=candidate;}catch{}
+        }
+      }
+      document.getElementById('back-home').href=new URL('index.html',base).href;
+      document.body.style.setProperty('--edge-art','url("'+new URL('assets/world-night.webp',base).href+'")');
+    })();
+  </script>
+</body>
+</html>

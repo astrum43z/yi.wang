@@ -1,2 +1,11 @@
-此目录用于存放用户提供的真实图片和可选音频。当前未提供任何照片、物件图片或音乐。
-图片路径在 script.js 的 PHOTOS 中填写；首页相框同步使用前两张照片。
+YI.WANG V4 original fictional environment assets
+
+world-day.webp / world-night.webp: registered daytime and repainted night landscape.
+clouds.webp / foreground.webp / window.webp: transparent painted overlay layers.
+social-preview.jpg: daytime painting encoded as JPEG for social sharing.
+favicon.svg / apple-touch-icon.png: original yi wordmark icons.
+
+Full generation prompts and provenance: ../ASSET-PROMPTS.md.
+No real personal photos, locations or biography are represented by this artwork.
+User-supplied photos can be added here and referenced in PHOTOS in ../script.js.
+Audio is generated locally by Web Audio after opt-in; there are no audio files.
