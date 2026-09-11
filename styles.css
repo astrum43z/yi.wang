@@ -495,3 +495,93 @@ html:has(body.motion-paused) { scroll-behavior: auto; }
   .hero { padding: 90px 30px; min-height: 500px; }
   .hero-polaroid { display: none; }
 }
+
+
+/* 个人小世界：沿用原奶油手账配色、相框、小册子与便签。 */
+body { font-size: 16px; }
+.desktop-nav a { font-size: 14px; }
+.wordmark { font-size: 15px; letter-spacing: .12em; }
+.hero-subtitle { font-size: 18px; }
+.hero-copy .eyebrow { font-size: 12px; }
+.eyebrow, .secondary-label, .archive-count { font-size: 12px; }
+.section-top .eyebrow { font-size: 14px; }
+.section-top .eyebrow>span { font-size: 12px; }
+.scroll-cue { font-size: 14px; }
+.cover-photo>span { font-size: 14px; }
+.recent { background: #f3f3e9; }
+.empty-label { font-size: 14px; color: var(--muted); }
+.recent-list { display: grid; gap: 24px; }
+.recent-card { display: grid; grid-template-columns: 150px minmax(0,1fr) 38px; align-items: center; gap: 32px; position: relative; padding: 28px 36px; border: 1px solid #e0dccb; border-radius: 8px 18px 18px 8px; background: #fffdf7; box-shadow: 0 7px 16px #84715309; }
+.recent-card:nth-child(2) { margin-left: 34px; background: #fcf6eb; }
+.recent-date { display: flex; align-items: center; gap: 20px; color: var(--muted); font-size: 14px; }
+.entry-number { font: 28px var(--serif); color: #9a7762; }
+.recent-copy { border-left: 1px dashed #d8cbb7; padding: 4px 0 4px 32px; min-width: 0; }
+.recent-copy h3 { font-size: 20px; font-weight: 500; margin-bottom: 8px; }
+.recent-copy p { font: 18px/1.8 var(--hand); color: var(--muted); white-space: pre-line; overflow-wrap: anywhere; }
+.recent-flower { width: 34px; height: 34px; color: #eed4b2; }
+.things { background: #f7eee4; }
+.things-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 34px; padding: 10px 4px; }
+.thing-card { position: relative; padding: 18px; background: #fffdf7; border: 1px solid #e3d9c6; border-radius: 5px; box-shadow: 0 10px 22px #91715310; rotate: -2deg; min-width: 0; }
+.thing-card:nth-child(2) { rotate: 2deg; margin-top: 22px; }
+.thing-card:nth-child(3) { rotate: -1deg; margin-top: 6px; }
+.thing-card .paper-tape { width: 76px; height: 25px; left: calc(50% - 38px); top: -12px; rotate: -5deg; }
+.thing-cover { display: grid; place-items: center; aspect-ratio: 1.6; border: 1px dashed #fffaf5; font: 18px var(--hand); color: var(--muted); overflow: hidden; }
+.thing-copy { padding: 22px 8px 6px; overflow-wrap: anywhere; }
+.thing-copy h3 { font-size: 21px; font-weight: 500; margin: 6px 0 12px; }
+.thing-copy p { font: 18px/1.8 var(--hand); color: var(--muted); white-space: pre-line; }
+.pending-link { display: block; border-top: 1px dashed var(--line); padding-top: 14px; margin-top: 24px; font-size: 14px; color: var(--muted); }
+.thing-copy a { display: inline-block; margin-top: 20px; text-decoration: underline; text-underline-offset: 5px; }
+.photo-number { font-size: 12px; }
+.photo-placeholder, .gallery-item figcaption { font-size: 16px; }
+.gallery-item figcaption>span:last-child { font-size: 12px; }
+.note-card footer { font-size: 14px; }
+.note-index { font-size: 14px; }
+.about-title { font: 600 clamp(28px,3vw,43px)/1.5 var(--sans); }
+.world-title { font: 24px/1.7 var(--hand); margin: 18px 0 30px; }
+.notebook-number { font: 500 54px/1.4 var(--hand); }
+.notebook-label { font-size: 14px; }
+.profile-note { padding: 25px 28px; border: 1px solid #e4ddcc; border-radius: 6px 18px 18px 6px; background: #fffdf7; rotate: -1deg; }
+.profile-note p { font: 20px/1.8 var(--hand); margin-top: 20px; color: var(--muted); overflow-wrap: anywhere; white-space: pre-line; }
+.about-footnote { font-size: 14px; flex-wrap: wrap; align-items: center; }
+.about-footnote a { padding: 8px 0; }
+.site-footer { padding: 32px 22px 115px; background: #f3f3e9; text-align: center; font-size: 14px; color: #765e4d; }
+.site-footer p { overflow-wrap: anywhere; }
+.scene-position { font-size: 12px; }
+.ambient-controls button { font-size: 14px; min-height: 44px; }
+.lightbox-meta { font-size: 14px; }
+.chapter-menu nav a span { font-size: 12px; }
+.scene-rail a { min-height: 44px; }
+.scene-rail span { font-size: 12px; }
+@media (max-width:900px) {
+  .desktop-nav { display: none; }
+  .menu-toggle { display: block; }
+  .things-grid { gap: 20px; }
+  .recent-card { grid-template-columns: 112px minmax(0,1fr) 30px; gap: 20px; padding: 26px; }
+  .recent-date { gap: 12px; }
+  .recent-copy { padding-left: 22px; }
+}
+@media (max-width:600px) {
+  .hero-subtitle { font-size: 16px; }
+  .hero-copy .eyebrow { font-size: 12px; }
+  .recent-card { grid-template-columns: minmax(0,1fr) 30px; gap: 15px; padding: 25px; }
+  .recent-card:nth-child(2) { margin-left: 12px; }
+  .recent-date { grid-column: 1; }
+  .recent-flower { grid-column: 2; grid-row: 1; width: 28px; height: 28px; }
+  .recent-copy { grid-column: 1 / -1; padding: 16px 0 0; border-left: 0; border-top: 1px dashed #d8cbb7; }
+  .things-grid { grid-template-columns: 1fr; gap: 36px; padding: 10px 9px; }
+  .thing-card:nth-child(n) { margin-top: 0; }
+  .thing-cover { aspect-ratio: 1.8; }
+  .about-title, .world-title { text-align: center; }
+  .world-title { font-size: 22px; }
+  .notebook-number { font-size: 44px; }
+  .section-top .eyebrow { font-size: 14px; }
+  .photo-placeholder { font-size: 14px; }
+  .gallery-item figcaption { font-size: 14px; }
+  .scene-position { gap: 6px; }
+  .ambient-controls button { font-size: 12px; }
+  .lightbox-stage { height: min(54svh,480px); }
+  .lightbox-meta { font-size: 12px; }
+  .lightbox-footer { flex-wrap: wrap; }
+  .chapter-menu nav a { font-size: 23px; }
+}
+@media (prefers-reduced-motion:reduce) { .thing-card { transition: none; } }
