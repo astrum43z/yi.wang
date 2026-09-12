@@ -21,8 +21,14 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preload" as="image" href="assets/world-day.webp">
+  <script>document.documentElement.classList.add('cinema');document.documentElement.dataset.initialScene=['home','recent','gallery','things','notes','about'].includes(location.hash.slice(1))?location.hash.slice(1):'home';history.scrollRestoration='manual';</script>
+  <link rel="preload" as="image" href="assets/foreground.webp">
+  <link rel="preload" as="image" href="assets/world-night.webp">
+  <link rel="preload" as="image" href="assets/window.webp">
   <link rel="stylesheet" href="styles.css">
   <script defer src="world-time.js"></script>
+  <script defer src="camera-controller.js"></script>
+  <script defer src="world-state.js"></script>
   <script defer src="script.js"></script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="96161282-32cd-4d9a-9470-663d7aa265c7"></script>
 </head>
@@ -31,30 +37,45 @@
   <div id="world" class="world" aria-hidden="true">
     <div class="world-sky"></div>
     <div class="sun-disc"></div><div class="sun-halo"></div>
-    <div class="moon-disc"></div><div class="nebula"></div>
+    <div class="moon-disc"></div><div class="nebula"></div><div class="weather-sky"></div>
     <div class="cloud-layer clouds-far"><img src="assets/clouds.webp" alt="" width="1774" height="887"></div>
     <div class="cloud-layer clouds-mid"><img src="assets/clouds.webp" alt="" width="1774" height="887"></div>
     <div class="cloud-layer clouds-near"><img src="assets/clouds.webp" alt="" width="1774" height="887"></div>
-    <div class="world-terrain">
+    <div class="far-terrain" data-world-layer="far">
       <div class="painting">
         <img class="landscape landscape-day" src="assets/world-day.webp" alt="" fetchpriority="high" width="1672" height="941">
         <img class="landscape landscape-night" src="assets/world-night.webp" alt="" width="1672" height="941">
+        <img class="landscape winter-day winter-art" data-src="assets/winter-day.webp" alt="" width="1672" height="941">
+        <img class="landscape winter-night winter-art" data-src="assets/winter-night.webp" alt="" width="1672" height="941">
+        
+        <div class="land-temperature"></div>
+      </div>
+    </div>
+    <div class="world-terrain" data-world-layer="mid">
+      <div class="painting">
+        <img class="landscape landscape-day" src="assets/world-day.webp" alt="" fetchpriority="high" width="1672" height="941">
+        <img class="landscape landscape-night" src="assets/world-night.webp" alt="" width="1672" height="941">
+        <img class="landscape winter-day winter-art" data-src="assets/winter-day.webp" alt="" width="1672" height="941">
+        <img class="landscape winter-night winter-art" data-src="assets/winter-night.webp" alt="" width="1672" height="941">
+        <div class="cat-anchor"><img id="world-cat" src="assets/cat-sleeping.webp" alt="" width="560" height="255"></div>
         <div class="cottage-glow"></div><div class="land-temperature"></div><div class="cloud-shadow"></div>
       </div>
     </div>
     <div class="morning-mist"></div><div class="dew-light"></div>
-    <div class="foreground foreground-left"><img src="assets/foreground.webp" alt="" width="1672" height="941"></div>
-    <div class="foreground foreground-middle"><img src="assets/foreground.webp" alt="" width="1672" height="941"></div>
-    <div class="foreground foreground-right"><img src="assets/foreground.webp" alt="" width="1672" height="941"></div>
-    <div class="tree-branch"><img src="assets/foreground.webp" alt="" width="1672" height="941"></div>
+    <div class="foreground foreground-left"><img src="assets/foreground.webp" alt="" width="1672" height="941"><img class="winter-foreground winter-art" data-src="assets/winter-foreground.webp" alt="" width="1672" height="941"></div>
+    <div class="foreground foreground-middle"><img src="assets/foreground.webp" alt="" width="1672" height="941"><img class="winter-foreground winter-art" data-src="assets/winter-foreground.webp" alt="" width="1672" height="941"></div>
+    <div class="foreground foreground-right"><img src="assets/foreground.webp" alt="" width="1672" height="941"><img class="winter-foreground winter-art" data-src="assets/winter-foreground.webp" alt="" width="1672" height="941"></div>
+    <div class="tree-branch"><img src="assets/foreground.webp" alt="" width="1672" height="941"><img class="winter-foreground winter-art" data-src="assets/winter-foreground.webp" alt="" width="1672" height="941"></div>
+    <div class="rain-glass" aria-hidden="true"></div>
+    <div class="eaves-drips" aria-hidden="true"></div>
     <div class="window-corner"><img src="assets/window.webp" alt="" width="1672" height="941"><div class="window-sunlight"></div></div>
     <div class="curtain"><img src="assets/window.webp" alt="" width="1672" height="941"></div>
     <canvas id="environment-canvas"></canvas>
   </div>
-  <div class="camera-wipe" aria-hidden="true"><img src="assets/foreground.webp" alt="" width="1672" height="941"></div>
+  <div class="camera-wipe" aria-hidden="true"><img class="wipe-leaves" src="assets/foreground.webp" alt="" width="1672" height="941"><span class="wipe-curtain"></span></div>
   <header class="site-header">
     <a class="wordmark" href="#home" aria-label="YI.WANG，回到首页">YI.WANG</a>
-    <nav class="desktop-nav" aria-label="章节导航"><a href="#recent">最近</a><a href="#gallery">相册</a><a href="#things">小东西</a><a href="#notes">随便写写</a><a href="#about">关于</a></nav>
+    <nav class="desktop-nav" aria-label="章节导航"><span class="nav-indicator" aria-hidden="true"></span><a href="#recent">最近</a><a href="#gallery">相册</a><a href="#things">小东西</a><a href="#notes">随便写写</a><a href="#about">关于</a></nav>
     <button class="menu-toggle" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="chapter-menu"><span></span><span></span></button>
   </header>
   <button class="skip-intro" type="button" hidden>跳过开场</button>
@@ -96,13 +117,24 @@
     <section class="chapter notes" id="notes" data-chapter="随便写写" aria-labelledby="notes-title">
       <div class="chapter-content writing-content">
         <div class="landmark"><span class="chapter-index">04</span><h2 id="notes-title">随便写写</h2></div>
-        <button class="notebook" id="open-notebook" type="button" aria-label="翻开随便写写笔记本" aria-haspopup="dialog"><span class="book-spine" aria-hidden="true"></span><span class="book-cover"><span>随便写写</span><small>翻开看看</small></span></button>
+        <div class="book-station" id="desk-book">
+          <div class="desk-book-object">
+            <div class="desk-book-left"><p>随便写写</p><small>YI.WANG</small></div>
+            <article class="desk-book-page" id="book-pages" inert>
+              <button class="icon-button book-close" id="book-close" type="button" aria-label="合上笔记本">×</button>
+              <span id="book-page-number">01</span><h3 id="book-title">这一页暂时留白</h3><p id="book-text">还没有文字。</p>
+              <div class="book-controls"><button class="icon-button" id="book-prev" type="button" aria-label="前一页">←</button><button class="icon-button" id="book-next" type="button" aria-label="后一页">→</button></div>
+            </article>
+            <button class="desk-book-cover" id="open-notebook" type="button" aria-label="翻开随便写写笔记本" aria-controls="book-pages" aria-expanded="false"><span>随便写写</span><small>翻开看看</small></button>
+          </div>
+        </div>
       </div>
     </section>
     <section class="chapter about" id="about" data-chapter="关于" aria-label="关于">
       <div class="quiet-signature"><h2>汪意</h2><p class="signature-domain">yi.wang</p><p>网页由文杰维护</p></div>
     </section>
   </main>
+  <p class="sr-only" id="journey-announcement" role="status" aria-live="polite"></p>
   <div class="world-controls" role="group" aria-label="世界设置">
     <button id="time-toggle" class="time-toggle" type="button" aria-label="预览一天的光线" aria-haspopup="dialog"><span class="time-symbol" aria-hidden="true">☀</span><span id="time-label">白昼</span><small id="time-mode-label">AUTO</small></button>
     <div class="playback-controls"><button id="motion-toggle" type="button" aria-pressed="false">动效开</button><button id="sound-toggle" type="button" aria-pressed="false">声音关</button></div>
@@ -115,19 +147,22 @@
   <dialog id="time-dialog" class="small-dialog time-dialog" aria-labelledby="time-dialog-title">
     <button class="icon-button" data-close-dialog type="button" aria-label="关闭光线预览">×</button>
     <h2 id="time-dialog-title">看看此刻之外</h2><p>默认跟随你的本地时间</p>
+    <p class="setting-label">光线</p>
     <div class="time-options"><button type="button" data-time="auto" aria-pressed="true">自动 <small>AUTO</small></button><button type="button" data-time="morning" aria-pressed="false">清晨</button><button type="button" data-time="day" aria-pressed="false">白昼</button><button type="button" data-time="sunset" aria-pressed="false">黄昏</button><button type="button" data-time="dusk" aria-pressed="false">入夜</button><button type="button" data-time="night" aria-pressed="false">深夜</button></div>
+    <p class="setting-label">季节</p>
+    <div class="climate-options season-options"><button type="button" data-season="auto" aria-pressed="true">随月份</button><button type="button" data-season="spring" aria-pressed="false">春</button><button type="button" data-season="summer" aria-pressed="false">夏</button><button type="button" data-season="autumn" aria-pressed="false">秋</button><button type="button" data-season="winter" aria-pressed="false">冬</button></div>
+    <p class="setting-label">天气</p>
+    <div class="climate-options weather-options"><button type="button" data-weather="clear" aria-pressed="true">晴</button><button type="button" data-weather="cloudy" aria-pressed="false">多云</button><button type="button" data-weather="rain" aria-pressed="false">雨</button><button type="button" data-weather="snow" aria-pressed="false">雪</button></div>
+    <p class="climate-note">这是风景的天气，不是所在地的天气预报。光线、季节和天气会慢慢变化。</p>
   </dialog>
   <dialog id="lightbox" class="object-dialog lightbox" aria-label="照片查看器" aria-describedby="lightbox-caption">
     <div class="lightbox-sheet"><div class="lightbox-header"><span id="lightbox-counter">01 / 06</span><button class="icon-button" id="lightbox-close" type="button" aria-label="关闭照片" autofocus>×</button></div>
-      <div id="lightbox-stage" class="lightbox-stage"><img id="lightbox-image" alt="" hidden><span id="lightbox-placeholder">等待一张照片</span></div>
+      <div id="lightbox-stage" class="lightbox-stage"><div id="photo-portal"></div></div>
       <div class="lightbox-footer"><div><p id="lightbox-caption">尚未放入照片</p><p class="photo-meta"><span id="lightbox-date"></span><span id="lightbox-place"></span></p></div><div class="lightbox-buttons"><button class="icon-button" id="lightbox-prev" type="button" aria-label="上一张照片">←</button><button class="icon-button" id="lightbox-next" type="button" aria-label="下一张照片">→</button></div></div>
       <p class="sr-only" id="lightbox-announcement" aria-live="polite"></p>
     </div>
   </dialog>
-  <dialog id="book-dialog" class="object-dialog book-dialog" aria-labelledby="book-title">
-    <div class="book-spread"><button class="icon-button book-close" data-close-dialog type="button" aria-label="合上笔记本">×</button><div class="book-left"><p>随便写写</p><span>YI.WANG</span></div><article class="book-page"><span id="book-page-number">01</span><h2 id="book-title">这一页暂时留白</h2><p id="book-text">还没有文字。</p><div class="book-controls"><button class="icon-button" id="book-prev" type="button" aria-label="前一页">←</button><button class="icon-button" id="book-next" type="button" aria-label="后一页">→</button></div></article></div>
-  </dialog>
   <p id="status-message" class="status-message" role="status" aria-live="polite"></p>
-  <noscript><p class="no-script">场景动画需要 JavaScript；你仍可以阅读各个栏目。</p></noscript>
+  <noscript><p class="no-script">场景旅行需要 JavaScript；你仍可以阅读各个栏目。</p></noscript>
 </body>
 </html>

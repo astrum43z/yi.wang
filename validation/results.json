@@ -1,0 +1,833 @@
+{
+  "version": "YI.WANG V5",
+  "scope": "Existing project update; browser rendering, desktop and mobile emulation; not a physical-phone or production-deployment test.",
+  "mainBrowserChecks": [
+    "Default silent AUTO, persistent single world",
+    "home to recent: intermediate camera frames",
+    "home to recent: no world recreation",
+    "home to gallery: intermediate camera frames",
+    "home to gallery: no world recreation",
+    "home to about: intermediate camera frames",
+    "home to about: no world recreation",
+    "recent to things: intermediate camera frames",
+    "recent to things: no world recreation",
+    "gallery to notes: intermediate camera frames",
+    "gallery to notes: no world recreation",
+    "notes to about: intermediate camera frames",
+    "notes to about: no world recreation",
+    "about to home: intermediate camera frames",
+    "about to home: no world recreation",
+    "Distance-dependent durations and 1–1.4s return",
+    "Real foreground coverage during travel",
+    "Same sky, cat, canvas and moving indicator nodes",
+    "Sky and cat continuous across every navigation",
+    "Five rapid navigation clicks settle at latest target",
+    "Rapid retarget has no single-frame teleport",
+    "Halfway retarget begins at actual visual position",
+    "Scroll midpoint feeds same navigation camera",
+    "Wheel interrupts navigation immediately",
+    "Browser Back animates using same controller",
+    "Browser Forward animates",
+    "Photo portal owns the exact original figure and button",
+    "Gallery next restores first object to its physical slot",
+    "Photo close restores all six figures and removes all seats",
+    "Photo close during shared-element flight is stable",
+    "Photo returns to responsive slot after rotation",
+    "Notebook opens in original scene without a modal",
+    "In-place page turn works",
+    "Native scroll away closes book and removes camera push",
+    "Time interpolation and camera travel run together",
+    "Reduced motion retains brief designed transition",
+    "Reduced motion stops idle continuous loop and parallax",
+    "Enabling reduced motion mid-journey safely settles",
+    "Seven responsive widths have no horizontal body overflow",
+    "Mobile navigation uses cinematic controller",
+    "Mobile natural touch can reverse camera path",
+    "Deep link first visible scene is gallery",
+    "Deep link initializes without home journey gallery",
+    "Refresh keeps target gallery",
+    "Deep link first visible scene is notes",
+    "Deep link initializes without home journey notes",
+    "Refresh keeps target notes",
+    "Deep link first visible scene is about",
+    "Deep link initializes without home journey about",
+    "Refresh keeps target about",
+    "Weather transitions over 45s with intermediate rain",
+    "Rain survives travel with same cat sky world",
+    "Window rain and eaves become visible",
+    "Rain audio attenuates without audio recreation",
+    "Winter weights and snow are global",
+    "All six winter places retain snow and same world",
+    "Winter assets decode with original-alpha foreground mask",
+    "Hidden handler stops audio and continuous frame loop",
+    "Resume preserves same world and leaves audio off",
+    "Required custom analytics event families are present",
+    "No JavaScript errors",
+    "No local resource failures"
+  ],
+  "routes": [
+    {
+      "from": "home",
+      "to": "recent",
+      "duration": 905,
+      "frames": 125
+    },
+    {
+      "from": "home",
+      "to": "gallery",
+      "duration": 1090,
+      "frames": 138
+    },
+    {
+      "from": "home",
+      "to": "about",
+      "duration": 1645,
+      "frames": 200
+    },
+    {
+      "from": "recent",
+      "to": "things",
+      "duration": 1090,
+      "frames": 147
+    },
+    {
+      "from": "gallery",
+      "to": "notes",
+      "duration": 1090,
+      "frames": 147
+    },
+    {
+      "from": "notes",
+      "to": "about",
+      "duration": 905,
+      "frames": 127
+    },
+    {
+      "from": "about",
+      "to": "home",
+      "duration": 1350,
+      "frames": 178
+    }
+  ],
+  "browserErrors": [],
+  "resourceErrors": [],
+  "independentPhotoChecks": [
+    "Delayed source keeps placeholder until decoded; same figure and image move into portal",
+    "Full-only record decodes, displays and returns the same original DOM nodes",
+    "Failed thumbnail successfully recovers to full source and hides placeholder",
+    "Failed full source retains a successfully decoded thumbnail",
+    "Both image sources fail gracefully to visible placeholder without script error",
+    "Previous and next reuse each original figure and image without duplicated nodes",
+    "Close during opening animation preserves same nodes and restores focus",
+    "Portrait full image uses contain fit in expanded original image node",
+    "Portrait to landscape orientation while open returns exact responsive physical slot",
+    "Landscape to narrow short portrait returns exact responsive physical slot",
+    "Close during opening immediately after viewport change leaves no orphan seat or modal lock",
+    "No browser script errors during all real-image code-path scenarios"
+  ],
+  "reducedMotionChecks": [
+    {
+      "name": "Clicking active scene keeps its content visible",
+      "pass": true
+    },
+    {
+      "name": "Mid-dissolve retarget introduces no unrelated scene",
+      "pass": true
+    },
+    {
+      "name": "Retarget preserves total visible content weight within visibility cutoff",
+      "pass": true
+    },
+    {
+      "name": "First retarget frame retains current visible mixture",
+      "pass": true
+    },
+    {
+      "name": "Reduced idle stops its master frame loop",
+      "pass": true
+    },
+    {
+      "name": "No page errors",
+      "pass": true
+    }
+  ],
+  "loadingRetry": {
+    "passed": true,
+    "firstRequests": 3,
+    "retryRequests": 6,
+    "reducedBookMotion": {
+      "widthRatio": 1,
+      "centerYDelta": 0
+    }
+  },
+  "staticChecks": [
+    "404.html unique element IDs",
+    "404.html exactly one correct deferred Umami script",
+    "index.html unique element IDs",
+    "index.html exactly one correct deferred Umami script",
+    "All runtime local resource references exist, are relative, and stay inside site",
+    "All in-page anchors resolve",
+    "Only requested Umami is an external runtime dependency",
+    "Social metadata absolute images have packaged local counterparts",
+    "JavaScript syntax including HTML inline scripts",
+    "Homepage exact visible identity",
+    "About exact visible identity",
+    "Desktop five sections exact text/order",
+    "Mobile navigation exact text/order",
+    "All six views occur once and in order",
+    "Original six PHOTOS preserved identically",
+    "All six photo records remain private-content placeholders",
+    "HTML photo slots match original six PHOTOS",
+    "Writing content retains three blank entries",
+    "No couple-template or unprovided identity claims in visible markup",
+    "Static deployment marker and no build/backend requirement",
+    "Packaged raster and SVG files parse successfully",
+    "No absolute local filesystem references or synthetic QA content in site runtime files"
+  ],
+  "renderChecks": [
+    "spring retained across six scenes",
+    "summer retained across six scenes",
+    "autumn retained across six scenes",
+    "AUTO 18:30 boundary concurrent with navigation",
+    "No page errors during captures"
+  ],
+  "finalChecks": [
+    "Final snow/rain scenes rendered after spatial corrections",
+    "System reduce and manual motion-off book have zero size/position movement",
+    "Opt-in sound event with original analytics API",
+    "GitHub Pages repository subpath loads resources and navigates",
+    "Without JavaScript all semantic sections remain readable",
+    "Branded 404 renders"
+  ],
+  "cameraAudit": {
+    "sha256": "c73772fee144aec914d0935bd4ec652bd063430bfb0609209804a72d746eee1d",
+    "sampleCount": 320928,
+    "retargetChecks": 5365,
+    "controlHullChecks": 48540,
+    "polynomialEndpointChecks": 32360,
+    "brakePlans": 725,
+    "normalRoutes": 36,
+    "edgeReversals": [
+      {
+        "from": 0,
+        "fraction": 0.8,
+        "initial": {
+          "position": 4.7104,
+          "velocity": 2.334346504559271,
+          "acceleration": -10.642917194039228
+        },
+        "duration": 1329.728,
+        "segments": 2,
+        "min": 3.6086758970969107e-10,
+        "max": 4.874442830350791,
+        "wrongEdgeFrames": 0
+      },
+      {
+        "from": 0,
+        "fraction": 0.85,
+        "initial": {
+          "position": 4.866940625,
+          "velocity": 1.4823328267477203,
+          "acceleration": -9.894587078833345
+        },
+        "duration": 1340.68584375,
+        "segments": 2,
+        "min": 1.9355601802998206e-10,
+        "max": 4.9644187987049735,
+        "wrongEdgeFrames": 0
+      },
+      {
+        "from": 0,
+        "fraction": 0.9,
+        "initial": {
+          "position": 4.9572,
+          "velocity": 0.7386018237082067,
+          "acceleration": -7.982187895529421
+        },
+        "duration": 1347.004,
+        "segments": 2,
+        "min": 1.913052594533662e-15,
+        "max": 4.999259478386194,
+        "wrongEdgeFrames": 0
+      },
+      {
+        "from": 0,
+        "fraction": 0.95,
+        "initial": {
+          "position": 4.9942093750000005,
+          "velocity": 0.20573708206686928,
+          "acceleration": -4.739424062970594
+        },
+        "duration": 1349.59465625,
+        "segments": 2,
+        "min": 2.0718883360873584e-11,
+        "max": 4.999911165449091,
+        "wrongEdgeFrames": 0
+      },
+      {
+        "from": 5,
+        "fraction": 0.8,
+        "initial": {
+          "position": 0.28959999999999986,
+          "velocity": -2.334346504559271,
+          "acceleration": 10.642917194039228
+        },
+        "duration": 1591.424,
+        "segments": 2,
+        "min": 0.12555716964920854,
+        "max": 4.999999998733735,
+        "wrongEdgeFrames": 0
+      },
+      {
+        "from": 5,
+        "fraction": 0.85,
+        "initial": {
+          "position": 0.1330593750000001,
+          "velocity": -1.4823328267477203,
+          "acceleration": 9.894587078833345
+        },
+        "duration": 1620.3840156249998,
+        "segments": 2,
+        "min": 0.035581201295026926,
+        "max": 4.999999999097717,
+        "wrongEdgeFrames": 0
+      },
+      {
+        "from": 5,
+        "fraction": 0.9,
+        "initial": {
+          "position": 0.042800000000000005,
+          "velocity": -0.7386018237082067,
+          "acceleration": 7.982187895529421
+        },
+        "duration": 1637.082,
+        "segments": 2,
+        "min": 0.0007405216138062359,
+        "max": 4.999999999991448,
+        "wrongEdgeFrames": 0
+      },
+      {
+        "from": 5,
+        "fraction": 0.95,
+        "initial": {
+          "position": 0.005790625000000008,
+          "velocity": -0.20573708206686928,
+          "acceleration": 4.739424062970594
+        },
+        "duration": 1643.928734375,
+        "segments": 2,
+        "min": 8.883455090955266e-05,
+        "max": 4.999999998970331,
+        "wrongEdgeFrames": 0
+      }
+    ],
+    "randomRequests": 5000,
+    "inputRequests": 2000,
+    "maxSpeed": 36.05231840489146,
+    "maxAcceleration": 566.8910363746593,
+    "result": "PASS"
+  },
+  "timeAudit": {
+    "engineSha256": "909b997113595fddc7a5245633c6238dbd25eef30f5c41d28d93bb2bf1d0beee",
+    "samples": 86400,
+    "numericAssertions": 2419200,
+    "phaseAssertions": 86413
+  },
+  "performance": {
+    "browser": "152.0.4191.66",
+    "methodology": "Sequential headless Edge on this desktop, actual requestAnimationFrame timestamps and wall time; no fake clock, CPU throttling, or network throttling. Mobile viewport/touch emulation is not a physical phone. Device pixel ratio 1. Analytics request fulfilled locally. Other QA browsers closed before sampling.",
+    "samples": [
+      {
+        "name": "desktop",
+        "mode": "day",
+        "width": 1440,
+        "height": 960,
+        "durationMs": 6032.5999999940395,
+        "rafFps": 47.751360165049995,
+        "rafMedianMs": 20.600000000000364,
+        "rafP95Ms": 20.700000000000728,
+        "maxFrameMs": 61.80000000000109,
+        "longTasks": []
+      },
+      {
+        "name": "desktop",
+        "mode": "night",
+        "width": 1440,
+        "height": 960,
+        "durationMs": 6024.60000000149,
+        "rafFps": 48.583265394406276,
+        "rafMedianMs": 20.599999999998545,
+        "rafP95Ms": 20.700000000000728,
+        "maxFrameMs": 20.700000000000728,
+        "longTasks": []
+      },
+      {
+        "name": "mobile",
+        "mode": "day",
+        "width": 390,
+        "height": 844,
+        "durationMs": 6174.79999999702,
+        "rafFps": 48.582338126574044,
+        "rafMedianMs": 20.600000000000364,
+        "rafP95Ms": 20.699999999999818,
+        "maxFrameMs": 20.700000000000728,
+        "longTasks": []
+      },
+      {
+        "name": "mobile",
+        "mode": "night",
+        "width": 390,
+        "height": 844,
+        "durationMs": 6202.60000000149,
+        "rafFps": 48.58208112077731,
+        "rafMedianMs": 20.599999999998545,
+        "rafP95Ms": 20.700000000000728,
+        "maxFrameMs": 21.100000000002183,
+        "longTasks": []
+      }
+    ],
+    "blankPageBaseline": {
+      "page": "about:blank",
+      "durationMs": 2218.20000000149,
+      "fps": 47.92185052068934,
+      "p95Ms": 20.700000000000045,
+      "maxMs": 61.69999999999999,
+      "intervals": 104
+    },
+    "cdpNavigation": {
+      "viewport": "1440x960",
+      "mode": "auto day",
+      "navigation": [
+        "home",
+        "gallery",
+        "notes"
+      ],
+      "durationSeconds": 3.03839500000322,
+      "worldFrames": 139,
+      "durations": {
+        "ScriptDuration": {
+          "totalMs": 36.141,
+          "msPerSecond": 11.894766809437778,
+          "meanMsPerWorldFrame": 0.2600071942446043
+        },
+        "TaskDuration": {
+          "totalMs": 437.39700000000005,
+          "msPerSecond": 143.95659550504016,
+          "meanMsPerWorldFrame": 3.1467410071942448
+        },
+        "LayoutDuration": {
+          "totalMs": 8.214,
+          "msPerSecond": 2.7034009732083204,
+          "meanMsPerWorldFrame": 0.05909352517985612
+        },
+        "RecalcStyleDuration": {
+          "totalMs": 254.125,
+          "msPerSecond": 83.63790751358223,
+          "meanMsPerWorldFrame": 1.8282374100719425
+        }
+      },
+      "scriptSha256": "0eb5ebb23d00efc2708ad5b11cddc3e33669188a820a1171a220f9b0900c0a38",
+      "interpretation": "Cumulative renderer main-thread timings divided by actual elapsed time/frames. Average cost, not a worst-case frame guarantee; excludes compositor/GPU work. No nondefault frame-rate flags."
+    }
+  },
+  "actualIntermediateFrames": [
+    {
+      "name": "journey-to-gallery-0",
+      "t": 0,
+      "request": {
+        "id": 2,
+        "from": 0,
+        "to": 2,
+        "duration": 1090,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 0,
+        "scene": "home",
+        "cover": 0
+      }
+    },
+    {
+      "name": "journey-to-gallery-180",
+      "t": 180,
+      "request": {
+        "id": 2,
+        "from": 0,
+        "to": 2,
+        "duration": 1090,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 0.062134490311266125,
+        "scene": "home",
+        "cover": 0
+      }
+    },
+    {
+      "name": "journey-to-gallery-360",
+      "t": 360,
+      "request": {
+        "id": 2,
+        "from": 0,
+        "to": 2,
+        "duration": 1090,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 0.3815739583649244,
+        "scene": "home",
+        "cover": 0.428
+      }
+    },
+    {
+      "name": "journey-to-gallery-540",
+      "t": 540,
+      "request": {
+        "id": 2,
+        "from": 0,
+        "to": 2,
+        "duration": 1090,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 0.9312544102714982,
+        "scene": "recent",
+        "cover": 0.821
+      }
+    },
+    {
+      "name": "journey-to-gallery-750",
+      "t": 750,
+      "request": {
+        "id": 2,
+        "from": 0,
+        "to": 2,
+        "duration": 1090,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 1.639034574249945,
+        "scene": "gallery",
+        "cover": 0
+      }
+    },
+    {
+      "name": "journey-to-gallery-1170",
+      "t": 1170,
+      "request": {
+        "id": 2,
+        "from": 0,
+        "to": 2,
+        "duration": 1090,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 2,
+        "scene": "gallery",
+        "cover": 0
+      }
+    },
+    {
+      "name": "journey-to-window-0",
+      "t": 0,
+      "request": {
+        "id": 4,
+        "from": 2,
+        "to": 4,
+        "duration": 1090,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 2,
+        "scene": "gallery",
+        "cover": 0
+      }
+    },
+    {
+      "name": "journey-to-window-180",
+      "t": 180,
+      "request": {
+        "id": 4,
+        "from": 2,
+        "to": 4,
+        "duration": 1090,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 2.0564110546051033,
+        "scene": "gallery",
+        "cover": 0
+      }
+    },
+    {
+      "name": "journey-to-window-360",
+      "t": 360,
+      "request": {
+        "id": 4,
+        "from": 2,
+        "to": 4,
+        "duration": 1090,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 2.4080443832448277,
+        "scene": "gallery",
+        "cover": 0.5551
+      }
+    },
+    {
+      "name": "journey-to-window-540",
+      "t": 540,
+      "request": {
+        "id": 4,
+        "from": 2,
+        "to": 4,
+        "duration": 1090,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 2.9656040513301125,
+        "scene": "things",
+        "cover": 0.7331
+      }
+    },
+    {
+      "name": "journey-to-window-750",
+      "t": 750,
+      "request": {
+        "id": 4,
+        "from": 2,
+        "to": 4,
+        "duration": 1090,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 3.6236261724697885,
+        "scene": "notes",
+        "cover": 0
+      }
+    },
+    {
+      "name": "journey-to-window-1170",
+      "t": 1170,
+      "request": {
+        "id": 4,
+        "from": 2,
+        "to": 4,
+        "duration": 1090,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 4,
+        "scene": "notes",
+        "cover": 0
+      }
+    },
+    {
+      "name": "journey-to-about-0",
+      "t": 0,
+      "request": {
+        "id": 6,
+        "from": 4,
+        "to": 5,
+        "duration": 905,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 4,
+        "scene": "notes",
+        "cover": 0
+      }
+    },
+    {
+      "name": "journey-to-about-180",
+      "t": 180,
+      "request": {
+        "id": 6,
+        "from": 4,
+        "to": 5,
+        "duration": 905,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 4.054581748898163,
+        "scene": "notes",
+        "cover": 0
+      }
+    },
+    {
+      "name": "journey-to-about-360",
+      "t": 360,
+      "request": {
+        "id": 6,
+        "from": 4,
+        "to": 5,
+        "duration": 905,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 4.30040218039641,
+        "scene": "notes",
+        "cover": 0.7681
+      }
+    },
+    {
+      "name": "journey-to-about-540",
+      "t": 540,
+      "request": {
+        "id": 6,
+        "from": 4,
+        "to": 5,
+        "duration": 905,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 4.6555003587858215,
+        "scene": "about",
+        "cover": 0.5088
+      }
+    },
+    {
+      "name": "journey-to-about-750",
+      "t": 750,
+      "request": {
+        "id": 6,
+        "from": 4,
+        "to": 5,
+        "duration": 905,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 4.9525193491075665,
+        "scene": "about",
+        "cover": 0
+      }
+    },
+    {
+      "name": "journey-to-about-985",
+      "t": 985,
+      "request": {
+        "id": 6,
+        "from": 4,
+        "to": 5,
+        "duration": 905,
+        "source": "navigation"
+      },
+      "state": {
+        "p": 5,
+        "scene": "about",
+        "cover": 0
+      }
+    },
+    {
+      "name": "journey-return-0",
+      "t": 0,
+      "request": {
+        "id": 8,
+        "from": 5,
+        "to": 0,
+        "duration": 1350,
+        "source": "home"
+      },
+      "state": {
+        "p": 5,
+        "scene": "about",
+        "cover": 0
+      }
+    },
+    {
+      "name": "journey-return-180",
+      "t": 180,
+      "request": {
+        "id": 8,
+        "from": 5,
+        "to": 0,
+        "duration": 1350,
+        "source": "home"
+      },
+      "state": {
+        "p": 4.90392098765432,
+        "scene": "about",
+        "cover": 0
+      }
+    },
+    {
+      "name": "journey-return-360",
+      "t": 360,
+      "request": {
+        "id": 8,
+        "from": 5,
+        "to": 0,
+        "duration": 1350,
+        "source": "home"
+      },
+      "state": {
+        "p": 4.40753282405618,
+        "scene": "notes",
+        "cover": 0
+      }
+    },
+    {
+      "name": "journey-return-540",
+      "t": 540,
+      "request": {
+        "id": 8,
+        "from": 5,
+        "to": 0,
+        "duration": 1350,
+        "source": "home"
+      },
+      "state": {
+        "p": 3.4637426010467927,
+        "scene": "things",
+        "cover": 0.9029
+      }
+    },
+    {
+      "name": "journey-return-750",
+      "t": 750,
+      "request": {
+        "id": 8,
+        "from": 5,
+        "to": 0,
+        "duration": 1350,
+        "source": "home"
+      },
+      "state": {
+        "p": 2.051393827390476,
+        "scene": "gallery",
+        "cover": 0.3678
+      }
+    },
+    {
+      "name": "journey-return-1430",
+      "t": 1430,
+      "request": {
+        "id": 8,
+        "from": 5,
+        "to": 0,
+        "duration": 1350,
+        "source": "home"
+      },
+      "state": {
+        "p": 0,
+        "scene": "home",
+        "cover": 0
+      }
+    }
+  ],
+  "autoTimeBoundary": {
+    "before": 1109.9787500000002,
+    "middle": 1109.99555,
+    "after": 1110.01235
+  },
+  "finalRuntimeSha256": {
+    "404.html": "4fd66dc3efeb94fb589e65e21a8de56444a1e00a1c9443872538f8f3b1349971",
+    "camera-controller.js": "c73772fee144aec914d0935bd4ec652bd063430bfb0609209804a72d746eee1d",
+    "index.html": "8ce30708e5f5854874de0b6eae7380aecaf98fa1a74283e73b32481fdc1f424b",
+    "script.js": "0eb5ebb23d00efc2708ad5b11cddc3e33669188a820a1171a220f9b0900c0a38",
+    "styles.css": "f44468e91ca626d902ae7d13376b1e97e4bfd6137a376fa655fb94d6a5b29832",
+    "world-state.js": "8c8589549ee0551f6219819054e66a34ac8a3224eaffd61febbef1bcf125b855",
+    "world-time.js": "909b997113595fddc7a5245633c6238dbd25eef30f5c41d28d93bb2bf1d0beee"
+  }
+}
