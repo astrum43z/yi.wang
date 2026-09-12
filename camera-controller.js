@@ -19,14 +19,16 @@
     // Shorten the brake until its whole convex hull fits, then use the remaining time
     // for a zero-speed/zero-acceleration departure toward the new destination.
     let brakeDuration=Math.min(160,duration*.20),brake;
+    const validBrake=part=>inside(part)&&(part.to===to||part.to>0&&part.to<5);
     for(let attempt=0;attempt<80;attempt++){
       const seconds=brakeDuration/1000;
-      const stop=clamp(from+velocity*seconds/2+acceleration*seconds*seconds/12,0,5);
+      const stop=from+velocity*seconds/2+acceleration*seconds*seconds/12;
       brake=segment(from,stop,brakeDuration,velocity,acceleration);
-      if(inside(brake))break;
+      // Never turn a proposed overshoot into a stop at the wrong world edge.
+      if(validBrake(brake))break;
       brakeDuration*=.5;
     }
-    if(!inside(brake))throw new Error('Camera state cannot be continued inside the world bounds');
+    if(!validBrake(brake))throw new Error('Camera state cannot be continued inside the world bounds');
     return [brake,segment(brake.to,to,duration-brakeDuration,0,0,brakeDuration)];
   }
   function evaluate(parts,elapsed){
@@ -44,9 +46,9 @@
   class CameraController{
     constructor(position=0){this.position=clamp(position,0,5);this.velocity=0;this.acceleration=0;this.target=this.position;this.travel=null;this.follow=null;this.serial=0;this.lastRequest=null;}
     duration(distance,source){return source==='home'?clamp(1000+distance*70,1000,1400):clamp(720+distance*185,720,1760);}
-    go(target,now,{source='navigation',reduced=false}={}){
+    go(target,now,{source='navigation',reduced=false,duration:requestedDuration}={}){
       target=clamp(target,0,5);
-      const distance=Math.abs(target-this.position),duration=reduced?260:this.duration(distance,source);
+      const distance=Math.abs(target-this.position),duration=reduced?260:Number.isFinite(requestedDuration)&&requestedDuration>0?requestedDuration:this.duration(distance,source);
       const id=++this.serial;
       this.target=target;this.follow=null;
       this.travel={id,from:this.position,to:target,start:now,duration,initialVelocity:this.velocity,initialAcceleration:this.acceleration,source,reduced,progress:0,

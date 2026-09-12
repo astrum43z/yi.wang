@@ -20,59 +20,29 @@
   <meta name="twitter:image:alt" content="原创手绘草坡、远山与天空场景">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="preload" as="image" href="assets/world-day.webp">
   <script>document.documentElement.classList.add('cinema');document.documentElement.dataset.initialScene=['home','recent','gallery','things','notes','about'].includes(location.hash.slice(1))?location.hash.slice(1):'home';history.scrollRestoration='manual';</script>
-  <link rel="preload" as="image" href="assets/foreground.webp">
-  <link rel="preload" as="image" href="assets/world-night.webp">
-  <link rel="preload" as="image" href="assets/window.webp">
   <link rel="stylesheet" href="styles.css">
   <script defer src="world-time.js"></script>
   <script defer src="camera-controller.js"></script>
   <script defer src="world-state.js"></script>
+  <script defer src="scene-painter.js"></script>
   <script defer src="script.js"></script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="96161282-32cd-4d9a-9470-663d7aa265c7"></script>
 </head>
 <body>
   <a href="#main" class="skip-link">跳至正文</a>
   <div id="world" class="world" aria-hidden="true">
-    <div class="world-sky"></div>
-    <div class="sun-disc"></div><div class="sun-halo"></div>
-    <div class="moon-disc"></div><div class="nebula"></div><div class="weather-sky"></div>
-    <div class="cloud-layer clouds-far"><img src="assets/clouds.webp" alt="" width="1774" height="887"></div>
-    <div class="cloud-layer clouds-mid"><img src="assets/clouds.webp" alt="" width="1774" height="887"></div>
-    <div class="cloud-layer clouds-near"><img src="assets/clouds.webp" alt="" width="1774" height="887"></div>
-    <div class="far-terrain" data-world-layer="far">
-      <div class="painting">
-        <img class="landscape landscape-day" src="assets/world-day.webp" alt="" fetchpriority="high" width="1672" height="941">
-        <img class="landscape landscape-night" src="assets/world-night.webp" alt="" width="1672" height="941">
-        <img class="landscape winter-day winter-art" data-src="assets/winter-day.webp" alt="" width="1672" height="941">
-        <img class="landscape winter-night winter-art" data-src="assets/winter-night.webp" alt="" width="1672" height="941">
-        
-        <div class="land-temperature"></div>
-      </div>
-    </div>
-    <div class="world-terrain" data-world-layer="mid">
-      <div class="painting">
-        <img class="landscape landscape-day" src="assets/world-day.webp" alt="" fetchpriority="high" width="1672" height="941">
-        <img class="landscape landscape-night" src="assets/world-night.webp" alt="" width="1672" height="941">
-        <img class="landscape winter-day winter-art" data-src="assets/winter-day.webp" alt="" width="1672" height="941">
-        <img class="landscape winter-night winter-art" data-src="assets/winter-night.webp" alt="" width="1672" height="941">
-        <div class="cat-anchor"><img id="world-cat" src="assets/cat-sleeping.webp" alt="" width="560" height="255"></div>
-        <div class="cottage-glow"></div><div class="land-temperature"></div><div class="cloud-shadow"></div>
-      </div>
-    </div>
-    <div class="morning-mist"></div><div class="dew-light"></div>
-    <div class="foreground foreground-left"><img src="assets/foreground.webp" alt="" width="1672" height="941"><img class="winter-foreground winter-art" data-src="assets/winter-foreground.webp" alt="" width="1672" height="941"></div>
-    <div class="foreground foreground-middle"><img src="assets/foreground.webp" alt="" width="1672" height="941"><img class="winter-foreground winter-art" data-src="assets/winter-foreground.webp" alt="" width="1672" height="941"></div>
-    <div class="foreground foreground-right"><img src="assets/foreground.webp" alt="" width="1672" height="941"><img class="winter-foreground winter-art" data-src="assets/winter-foreground.webp" alt="" width="1672" height="941"></div>
-    <div class="tree-branch"><img src="assets/foreground.webp" alt="" width="1672" height="941"><img class="winter-foreground winter-art" data-src="assets/winter-foreground.webp" alt="" width="1672" height="941"></div>
-    <div class="rain-glass" aria-hidden="true"></div>
-    <div class="eaves-drips" aria-hidden="true"></div>
-    <div class="window-corner"><img src="assets/window.webp" alt="" width="1672" height="941"><div class="window-sunlight"></div></div>
-    <div class="curtain"><img src="assets/window.webp" alt="" width="1672" height="941"></div>
+    <div class="world-sky"></div><div class="sun-disc"></div><div class="sun-halo"></div><div class="moon-disc"></div>
+    <div class="cloud-layer clouds-far"><canvas class="cloud-frame" data-paint="cloudfar"></canvas><canvas class="cloud-frame" data-paint="cloudfar"></canvas></div>
+    <div class="cloud-layer clouds-mid"><canvas class="cloud-frame" data-paint="cloudmid"></canvas><canvas class="cloud-frame" data-paint="cloudmid"></canvas></div>
+    <div class="cloud-layer clouds-near"><canvas class="cloud-frame" data-paint="cloudnear"></canvas><canvas class="cloud-frame" data-paint="cloudnear"></canvas></div>
+    <div class="far-terrain" data-world-layer="far"><div class="painting"><canvas class="terrain-frame" data-paint="far"></canvas><canvas class="terrain-frame" data-paint="far"></canvas></div></div>
+    <div class="world-terrain" data-world-layer="main"><div class="painting"><canvas class="terrain-frame" data-paint="main"></canvas><canvas class="terrain-frame" data-paint="main"></canvas></div></div>
+    <div class="foreground-decor"><canvas class="foreground-frame" data-paint="foreground"></canvas><canvas class="foreground-frame" data-paint="foreground"></canvas></div>
+    <div class="window-corner"><canvas class="window-frame" data-paint="window"></canvas><canvas class="window-frame" data-paint="window"></canvas></div>
     <canvas id="environment-canvas"></canvas>
   </div>
-  <div class="camera-wipe" aria-hidden="true"><img class="wipe-leaves" src="assets/foreground.webp" alt="" width="1672" height="941"><span class="wipe-curtain"></span></div>
+  <div class="camera-leaf" aria-hidden="true"><canvas></canvas></div>
   <header class="site-header">
     <a class="wordmark" href="#home" aria-label="YI.WANG，回到首页">YI.WANG</a>
     <nav class="desktop-nav" aria-label="章节导航"><span class="nav-indicator" aria-hidden="true"></span><a href="#recent">最近</a><a href="#gallery">相册</a><a href="#things">小东西</a><a href="#notes">随便写写</a><a href="#about">关于</a></nav>
@@ -152,8 +122,8 @@
     <p class="setting-label">季节</p>
     <div class="climate-options season-options"><button type="button" data-season="auto" aria-pressed="true">随月份</button><button type="button" data-season="spring" aria-pressed="false">春</button><button type="button" data-season="summer" aria-pressed="false">夏</button><button type="button" data-season="autumn" aria-pressed="false">秋</button><button type="button" data-season="winter" aria-pressed="false">冬</button></div>
     <p class="setting-label">天气</p>
-    <div class="climate-options weather-options"><button type="button" data-weather="clear" aria-pressed="true">晴</button><button type="button" data-weather="cloudy" aria-pressed="false">多云</button><button type="button" data-weather="rain" aria-pressed="false">雨</button><button type="button" data-weather="snow" aria-pressed="false">雪</button></div>
-    <p class="climate-note">这是风景的天气，不是所在地的天气预报。光线、季节和天气会慢慢变化。</p>
+    <div class="climate-options weather-options"><button type="button" data-weather="clear" aria-pressed="true">晴</button><button type="button" data-weather="cloudy" aria-pressed="false">多云</button><button type="button" data-weather="overcast" aria-pressed="false">阴</button><button type="button" data-weather="rain" aria-pressed="false">雨</button><button type="button" data-weather="snow" aria-pressed="false">雪</button></div>
+    <p class="climate-note">这是风景的天气，不是所在地的天气预报。光线、季节和天气会一起渐变。</p>
   </dialog>
   <dialog id="lightbox" class="object-dialog lightbox" aria-label="照片查看器" aria-describedby="lightbox-caption">
     <div class="lightbox-sheet"><div class="lightbox-header"><span id="lightbox-counter">01 / 06</span><button class="icon-button" id="lightbox-close" type="button" aria-label="关闭照片" autofocus>×</button></div>
