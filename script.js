@@ -1,6 +1,6 @@
 const PHOTOS = [
-  { src: "", full: "", caption: "[照片说明]", date: "[日期]", place: "[地点]" },
-  { src: "", full: "", caption: "[照片说明]", date: "[日期]", place: "[地点]" },
+  { src: "assets/photos/photo-01.jpg", full: "assets/photos/photo-01.jpg", caption: "看瓷器", date: "[日期]", place: "[地点]" },
+  { src: "assets/photos/photo-02.jpg", full: "assets/photos/photo-02.jpg", caption: "油纸伞", date: "[日期]", place: "[地点]" },
   { src: "", full: "", caption: "[照片说明]", date: "[日期]", place: "[地点]" },
   { src: "", full: "", caption: "[照片说明]", date: "[日期]", place: "[地点]" },
   { src: "", full: "", caption: "[照片说明]", date: "[日期]", place: "[地点]" },
