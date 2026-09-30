@@ -88,6 +88,7 @@ html[data-quality="low"] .camera-leaf{display:none}
 .empty-photo{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(150deg,#b4c4ba,#a3b6b0 50%,#829c99);color:#edf0df}
 .hanging-photo:nth-child(2n) .empty-photo{background:linear-gradient(130deg,#d2ccb2,#b9bda5)}.hanging-photo:nth-child(3n) .empty-photo{background:linear-gradient(150deg,#aebbc1,#7e9ba8)}
 .empty-photo span{font:13px var(--serif);letter-spacing:.06em;opacity:.85}
+.photo-button:disabled{cursor:default}
 .photo-button img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s ease}
 .photo-button img.is-decoded{opacity:1}
 .photo-sequence{position:absolute;bottom:9px;right:10px;color:#f7f0dbbb;font:12px var(--sans)}
@@ -145,6 +146,7 @@ html.cinema{scroll-behavior:auto;scroll-padding:0}
 .world-controls{position:fixed;z-index:26;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:16px var(--gutter) calc(16px + env(safe-area-inset-bottom));color:#fff7e2;text-shadow:0 1px 4px #071c25;background:linear-gradient(transparent,#122e3030);pointer-events:none}
 .world-controls button{pointer-events:auto;min-height:44px;padding:8px 4px}
 .time-toggle{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.07em}.time-symbol{font-size:20px;line-height:1}
+.time-copy{display:flex;flex-direction:column;align-items:flex-start;gap:3px}.environment-label{font-size:12px}.time-status{font-size:10px;opacity:.8}
 .time-toggle small{font-size:10px;opacity:.7;letter-spacing:.13em;margin-left:6px}.playback-controls{display:flex;gap:25px}
 .playback-controls button{font-size:12px;letter-spacing:.07em}
 .scene-rail{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:24;display:flex;flex-direction:column;gap:2px;color:#fff6df}
@@ -190,7 +192,7 @@ dialog{color:#35423d;border:0}dialog::backdrop{background:#0c202a8c}
 .no-script{padding:15px 25px;background:#e7e4cf;color:#35423c;text-align:center;font-size:14px}
 
 @media(hover:hover) and (pointer:fine){
- .hanging-photo:hover{transform:rotate(0deg) translateY(-4px)}.keepsake:hover{transform:translateY(-6px) rotate(0)}
+ .hanging-photo:not(.is-empty):hover{transform:rotate(0deg) translateY(-4px)}.keepsake:hover{transform:translateY(-6px) rotate(0)}
 }
 @media(max-width:1000px){
  .desktop-nav{gap:18px}.field-notes{gap:24px}.field-note{padding:29px 21px}.picnic-cloth{gap:26px;padding-left:20px;padding-right:20px}.scene-rail{right:9px}
