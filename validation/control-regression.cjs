@@ -45,4 +45,17 @@ assert.match(html, /id="motion-toggle"[^>]*aria-label="动效"/); assertions++;
 assert.match(html, /id="sound-toggle"[^>]*aria-label="声音"/); assertions++;
 assert.match(html, /class="environment-label">光线·季节·天气/); assertions++;
 assert.match(source, /if\(photoClosing\|\|!availablePhotoIndices.includes\(index\)\)return/); assertions++;
+// Restoring a photo must discard the canceled animation. Otherwise a later
+// motion toggle can finish that old animation and reapply its reduced scale.
+let canceled = 0;
+context.photoAnimation = {cancel: () => canceled++, finish: () => {throw new Error('A restored photo animation must not be finished');}};
+context.openPhoto = {figure:{classList:{add:()=>{},remove:()=>{}},style:{removeProperty:()=>{}}},seat:{replaceWith:()=>{}},scroll:{}};
+context.getComputedStyle = () => ({transform:'none'});
+context.syncPhotoScroll = () => {};
+context.unlockPhotoScroll = () => {};
+context.paused = () => true;
+vm.runInContext(line('function restorePhoto(') + '\nrestorePhoto();syncMotion();', context);
+equal(canceled, 1);
+equal(context.photoAnimation, null);
+equal(context.openPhoto, null);
 console.log(`${assertions} focused logic and markup assertions passed. Browser rendering, focus, touch, and physical-device behavior are not covered.`);

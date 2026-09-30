@@ -172,7 +172,7 @@ function syncPhotoScroll(item,node=item.seat){
   line.scrollLeft+=box.left+box.width/2-bounds.left-fraction*line.clientWidth;
 }
 function unlockPhotoScroll({line,snap,anchor,behavior}){line.style.scrollSnapType=snap;line.style.overflowAnchor=anchor;line.style.scrollBehavior=behavior;}
-function restorePhoto(){if(!openPhoto)return;photoAnimation?.cancel();const item=openPhoto,{figure,seat}=item;figure.classList.add('is-restoring');seat.replaceWith(figure);figure.classList.remove('is-expanded');figure.style.removeProperty('transform');getComputedStyle(figure).transform;syncPhotoScroll(item,figure);figure.classList.remove('is-restoring');unlockPhotoScroll(item.scroll);openPhoto=null;}
+function restorePhoto(){if(!openPhoto)return;photoAnimation?.cancel();photoAnimation=null;const item=openPhoto,{figure,seat}=item;figure.classList.add('is-restoring');seat.replaceWith(figure);figure.classList.remove('is-expanded');figure.style.removeProperty('transform');getComputedStyle(figure).transform;syncPhotoScroll(item,figure);figure.classList.remove('is-restoring');unlockPhotoScroll(item.scroll);openPhoto=null;}
 window.addEventListener('resize',()=>{if(openPhoto&&!photoClosing)syncPhotoScroll(openPhoto);},{passive:true});
 function flight(node,from,to,reverse=false){
   photoAnimation?.cancel();const dx=from.left+from.width/2-to.left-to.width/2,dy=from.top+from.height/2-to.top-to.height/2;
