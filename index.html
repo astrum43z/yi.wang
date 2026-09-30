@@ -28,6 +28,16 @@
   <script defer src="scene-painter.js"></script>
   <script defer src="script.js"></script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="96161282-32cd-4d9a-9470-663d7aa265c7"></script>
+  <style>
+    .contact-footer{position:absolute;left:20px;right:20px;bottom:calc(90px + env(safe-area-inset-bottom));width:auto;z-index:2;text-align:center;color:#f5efdf;font:12px/1.7 "Microsoft YaHei",sans-serif;letter-spacing:.03em;text-shadow:0 1px 4px #102e53}
+    .contact-footer-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+    .contact-footer button{min-height:44px;padding:7px 15px;border:1px solid #f5efdf80;border-radius:999px;background:#f5efdf;color:#35423d;font:inherit;cursor:pointer;text-shadow:none}
+    .contact-footer button:focus-visible,.contact-footer input:focus-visible{outline:2px solid #f5efdf;outline-offset:4px}
+    .contact-footer p{margin:0;font:inherit;letter-spacing:inherit}.contact-copy-status{min-height:1.7em;margin-top:4px!important}
+    .contact-footer input{display:block;max-width:100%;width:230px;margin:6px auto;padding:8px;border:1px solid #bdb49d;border-radius:6px;background:#fff9e9;color:#35423d;font:inherit;text-align:center}.contact-footer input[hidden]{display:none}
+    @media(max-width:360px){.contact-footer{left:12px;right:12px}.contact-footer-row{gap:4px 8px}}
+    @media print{.contact-footer{position:static;color:#35423d;text-shadow:none}.contact-footer button,.contact-copy-status{display:none}}
+  </style>
 </head>
 <body>
   <a href="#main" class="skip-link">跳至正文</a>
@@ -102,6 +112,11 @@
     </section>
     <section class="chapter about" id="about" data-chapter="关于" aria-label="关于">
       <div class="quiet-signature"><h2>汪意</h2><p class="signature-domain">yi.wang</p><p>网页由文杰维护</p></div>
+      <footer class="contact-footer" aria-label="联系微信">
+        <div class="contact-footer-row"><span>联系微信：<span>goodmorning2you</span></span><button type="button" data-copy-wechat aria-label="复制微信号 goodmorning2you">复制</button></div>
+        <p class="contact-copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        <input class="contact-copy-fallback" value="goodmorning2you" readonly hidden aria-label="微信号，请手动复制">
+      </footer>
     </section>
   </main>
   <p class="sr-only" id="journey-announcement" role="status" aria-live="polite"></p>
@@ -134,5 +149,23 @@
   </dialog>
   <p id="status-message" class="status-message" role="status" aria-live="polite"></p>
   <noscript><p class="no-script">场景旅行需要 JavaScript；你仍可以阅读各个栏目。</p></noscript>
+
+  <script>
+    document.querySelectorAll('[data-copy-wechat]').forEach(button=>{
+      const footer=button.closest('.contact-footer'),status=footer.querySelector('.contact-copy-status'),fallback=footer.querySelector('.contact-copy-fallback');
+      button.addEventListener('click',async()=>{
+        button.disabled=true;status.textContent='';fallback.hidden=true;
+        let copied=false;
+        try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText('goodmorning2you');copied=true;}}catch{}
+        if(!copied){
+          fallback.hidden=false;fallback.focus();fallback.select();
+          try{copied=document.execCommand('copy');}catch{}
+        }
+        button.disabled=false;
+        if(copied){fallback.hidden=true;button.focus();status.textContent='微信号已复制';}
+        else{status.textContent='自动复制未成功，请长按或选中微信号手动复制';fallback.focus();fallback.select();}
+      });
+    });
+  </script>
 </body>
 </html>

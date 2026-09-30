@@ -12,10 +12,25 @@
     *{box-sizing:border-box}html{min-height:100%;background:#243d58}body{min-height:100svh;margin:0;display:grid;place-items:center;color:#f5efdf;font-family:"Songti SC","SimSun",serif;background-image:linear-gradient(#102e5355,#13284433),var(--edge-art,linear-gradient(#243d58,#547487));background-size:cover;background-position:center}main{padding:40px 24px;text-align:center;margin-bottom:20svh}p{margin:0 0 22px;font:12px/1.8 "Microsoft YaHei",sans-serif;letter-spacing:.3em}h1{font-size:clamp(23px,3vw,40px);font-weight:400;line-height:1.8;margin:0 0 34px;text-shadow:0 2px 20px #09233b}a{color:inherit;text-decoration:none;display:inline-block;padding:12px 2px;border-bottom:1px solid #f5efdf70;font-size:15px;letter-spacing:.12em}a:focus-visible{outline:2px solid #f5efdf;outline-offset:8px}footer{position:fixed;bottom:25px;text-align:center;font-size:12px;letter-spacing:.12em;width:100%}@media(max-width:600px){body{background-position:58% center}main{margin-bottom:26svh}h1{max-width:290px}}
   </style>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="96161282-32cd-4d9a-9470-663d7aa265c7"></script>
+  <style>
+    .contact-footer{position:absolute;left:20px;right:20px;bottom:calc(90px + env(safe-area-inset-bottom));width:auto;z-index:2;text-align:center;color:#f5efdf;font:12px/1.7 "Microsoft YaHei",sans-serif;letter-spacing:.03em;text-shadow:0 1px 4px #102e53}
+    .contact-footer-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+    .contact-footer button{min-height:44px;padding:7px 15px;border:1px solid #f5efdf80;border-radius:999px;background:#f5efdf;color:#35423d;font:inherit;cursor:pointer;text-shadow:none}
+    .contact-footer button:focus-visible,.contact-footer input:focus-visible{outline:2px solid #f5efdf;outline-offset:4px}
+    .contact-footer p{margin:0;font:inherit;letter-spacing:inherit}.contact-copy-status{min-height:1.7em;margin-top:4px!important}
+    .contact-footer input{display:block;max-width:100%;width:230px;margin:6px auto;padding:8px;border:1px solid #bdb49d;border-radius:6px;background:#fff9e9;color:#35423d;font:inherit;text-align:center}.contact-footer input[hidden]{display:none}
+    @media(max-width:360px){.contact-footer{left:12px;right:12px}.contact-footer-row{gap:4px 8px}}
+    @media print{.contact-footer{position:static;color:#35423d;text-shadow:none}.contact-footer button,.contact-copy-status{display:none}}
+  </style>
 </head>
 <body>
   <main><p>YI.WANG · 404</p><h1>你走到了 yi.wang 的边缘。</h1><a id="back-home" href="/">回到小世界</a></main>
-  <footer>网页由文杰维护</footer>
+  <footer class="contact-footer" aria-label="联系微信">
+        <p>网页由文杰维护</p>
+        <div class="contact-footer-row"><span>联系微信：<span>goodmorning2you</span></span><button type="button" data-copy-wechat aria-label="复制微信号 goodmorning2you">复制</button></div>
+        <p class="contact-copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        <input class="contact-copy-fallback" value="goodmorning2you" readonly hidden aria-label="微信号，请手动复制">
+      </footer>
   <script>
     (async function(){
       let base=new URL('/',location.href);
@@ -30,6 +45,24 @@
       document.getElementById('back-home').href=new URL('index.html',base).href;
       document.body.style.setProperty('--edge-art','url("'+new URL('assets/world-night.webp',base).href+'")');
     })();
+  </script>
+
+  <script>
+    document.querySelectorAll('[data-copy-wechat]').forEach(button=>{
+      const footer=button.closest('.contact-footer'),status=footer.querySelector('.contact-copy-status'),fallback=footer.querySelector('.contact-copy-fallback');
+      button.addEventListener('click',async()=>{
+        button.disabled=true;status.textContent='';fallback.hidden=true;
+        let copied=false;
+        try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText('goodmorning2you');copied=true;}}catch{}
+        if(!copied){
+          fallback.hidden=false;fallback.focus();fallback.select();
+          try{copied=document.execCommand('copy');}catch{}
+        }
+        button.disabled=false;
+        if(copied){fallback.hidden=true;button.focus();status.textContent='微信号已复制';}
+        else{status.textContent='自动复制未成功，请长按或选中微信号手动复制';fallback.focus();fallback.select();}
+      });
+    });
   </script>
 </body>
 </html>
